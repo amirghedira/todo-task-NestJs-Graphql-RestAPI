@@ -1,0 +1,126 @@
+<div class="limiter">
+    <div class="container profile-container">
+        <div *ngIf="!loading" class="row main-row">
+
+            <div class="col">
+                <div class="row item-row">
+                    <div class="col-1 col-content">
+                        <h5 class="profile-items profile-field">Username</h5>
+                    </div>
+                    <div class="col col-content col-value">
+                        <h6 *ngIf="!editingUsername" class="profile-items"> {{userProfile.username}}</h6>
+                        <div *ngIf="editingUsername" class="col-content">
+                            <input type="text" class="form-control input-item" placeholder="New username..."
+                                name="username" id="username" [(ngModel)]="username">
+                            <button class="btn btn-outline-success my-2 my-sm-0 form-button"
+                                (click)="onSaveUsername()">Save</button>
+                            <button class="btn btn-outline-danger my-2 my-sm-0 form-button"
+                                (click)="onEditUserName()">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-1 col-content col-edit">
+                        <i *ngIf="ownProfile" (click)="onEditUserName()" class="far fa-edit"></i>
+                    </div>
+                </div>
+                <div class="row item-row">
+                    <div class="col-1 col-content">
+                        <h5 class="profile-items profile-field">Name</h5>
+                    </div>
+                    <div class="col col-content col-value">
+                        <h6 *ngIf="!editingName" class="profile-items"> {{userProfile.name}}</h6>
+                        <div *ngIf="editingName" class="col-content">
+
+                            <input type="text" class="form-control input-item" placeholder="New name..." name="name"
+                                id="name" [(ngModel)]="name">
+                            <button class="btn btn-outline-success my-2 my-sm-0 form-button"
+                                (click)="onSaveName()">Save</button>
+                            <button class="btn btn-outline-danger my-2 my-sm-0 form-button"
+                                (click)="onEditName()">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-1 col-content col-edit">
+                        <i *ngIf="ownProfile" (click)="onEditName()" class="far fa-edit"></i>
+                    </div>
+                </div>
+                <div class="row item-row">
+                    <div class="col-1 col-content">
+                        <h5 class="profile-items profile-field">Surname</h5>
+                    </div>
+                    <div class="col col-content col-value">
+                        <h6 *ngIf="!editingSurname" class="profile-items"> {{userProfile.surname}}</h6>
+                        <div *ngIf="editingSurname" class="col-content">
+
+                            <input type="text" class="form-control input-item" placeholder="Surname here..."
+                                name="surname" id="surname" [(ngModel)]="surname">
+                            <button class="btn btn-outline-success my-2 my-sm-0 form-button"
+                                (click)="onSaveSurname()">Save</button>
+                            <button class="btn btn-outline-danger my-2 my-sm-0 form-button"
+                                (click)="onEditSurname()">Cancel</button>
+
+                        </div>
+                    </div>
+                    <div class="col-1 col-content col-edit">
+                        <i *ngIf="ownProfile" (click)="onEditSurname()" class="far fa-edit"></i>
+                    </div>
+                </div>
+                <div class="row item-row">
+                    <div class="col-1 col-content">
+                        <h5 class="profile-items profile-field">Password</h5>
+                    </div>
+                    <div class="col col-content col-value">
+                        <h6 *ngIf="!editingPassword" class="profile-items"> ********** </h6>
+                        <div *ngIf="editingPassword">
+
+                            <input *ngIf="!connectedUser.adminAccess" type="password" class="form-control input-item"
+                                placeholder="Type old password" name="oldpassword" id="oldpassword"
+                                [(ngModel)]="oldpassword">
+                            <input type="password" class="form-control input-item" placeholder="Type new password"
+                                name="newpassword" id="newpassword" [(ngModel)]="newpassword">
+                            <input type="password" class="form-control input-item" placeholder="Type again password"
+                                name="repassword" id="repassword" [(ngModel)]="repassword">
+                            <div class="buttons-control">
+
+                                <button class="btn btn-outline-success my-2 my-sm-0 form-button"
+                                    (click)="onSavePassword()">Save</button>
+                                <button class="btn btn-outline-danger my-2 my-sm-0 form-button"
+                                    (click)="onEditPassword()">Cancel</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-1 col-content col-edit">
+                        <i *ngIf="ownProfile" (click)="onEditPassword()" class="far fa-edit"></i>
+                    </div>
+                </div>
+                <div class="row item-row">
+                    <div class="col-1 col-content">
+                        <h5 class="profile-items profile-field">Access</h5>
+                    </div>
+                    <div class="col col-content col-value">
+                        <div *ngIf="!editAccess">
+
+                            <h6 *ngIf=" userProfile.adminAccess" class="profile-items admin-access"> Admin</h6>
+                            <h6 *ngIf="!userProfile.adminAccess" class="profile-items user-access"> User</h6>
+                        </div>
+                        <div *ngIf="editAccess">
+                            <select class="form-control select-users" id="selectedAccess" name="selectedAccess"
+                                [(ngModel)]="selectedAccess" (change)="selectChanged()">
+
+                                <option> Admin</option>
+                                <option> User</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-1 col-content col-edit">
+                        <i *ngIf="connectedUser.adminAccess" (click)="onEditAccess()" class="far fa-edit"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

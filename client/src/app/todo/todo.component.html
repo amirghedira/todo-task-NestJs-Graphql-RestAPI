@@ -1,0 +1,114 @@
+<div *ngIf="todos && connectedUser && users" class="limiter">
+
+    <div class="container-fluid">
+        <div class="row todo-container">
+
+
+            <div *ngIf="checkAdminAccess()" class="col-sm-12 col-md-4">
+                <div class="add-task">
+
+                    <h4>Add Tasks</h4>
+                    <select class="form-control select-users" id="selectedUser" name="selectedUser"
+                        [(ngModel)]="selectedUser">
+                        <option *ngFor="let user of users"> {{user.username}}</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Title here..." name="title" id="title"
+                        [(ngModel)]="title">
+                    <textarea class=" form-control todo-input mx-auto" placeholder="Description here..."
+                        name="description" id="description" [(ngModel)]="description"></textarea>
+                    <div class="row">
+                        <div class="mx-auto">
+                            <button *ngIf="!status" class="btn btn-outline-success my-2 my-sm-0"
+                                (click)="onPost()">Assign
+                                task</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <h4>Current Tasks</h4>
+                <div *ngFor="let todo of todos" class="todo-list">
+                    <div class="row nav-todo">
+                        <div class="col-8">
+                            <div class="main-title">
+                                <i *ngIf="todo.state" class="fa fa-check state-icon closed-icon" aria-hidden="true"></i>
+
+                                <i *ngIf="!todo.state" class="fas fa-lock-open state-icon open-icon"></i>
+
+                                <h5 class="todo-title">{{todo.title}}</h5>
+                            </div>
+                            <p class="display-date">Assigned {{checkAdminAccess()? 'to' : 'by'}} <a class="profile-name"
+                                    [routerLink]="['/profile/',todo.userid._id]">
+                                    {{checkAdminAccess()? todo.userid.name +' '+todo.userid.surname : todo.writerid.name+' '+todo.writerid.surname}}</a>
+                                ,{{transformDate(todo.date)}}
+                            </p>
+                        </div>
+
+                        <div class="col-4 dropdown-control">
+                            <div class="dropdown dropdown-button">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <button class="dropdown-item"
+                                        (click)="oneditTodoState(todo._id,false)">Opentask</button>
+                                    <button class="dropdown-item" (click)="oneditTodoState(todo._id,true)">End
+                                        task</button>
+                                    <button *ngIf="checkAdminAccess()" class="dropdown-item"
+                                        (click)="onClickEditTodo(todo._id)" data-toggle="modal"
+                                        data-target="#myModal">Edit Todo</button>
+                                    <button *ngIf="checkAdminAccess()" class="dropdown-item"
+                                        (click)="onDeleteTodo(todo._id)">Delete Todo</button>
+                                    <button *ngIf="checkAdminAccess()" class="dropdown-item"
+                                        (click)="onDeleteUser(todo.userid._id)">Delete
+                                        user</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-10 todo-desc">
+                            <p>
+                                {{todo.description}}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Todo</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="New title" name="editTitle" id="editTitle"
+                        [(ngModel)]="editTitle">
+                    <textarea class=" form-control todo-input mx-auto" placeholder="Post your todo description here..."
+                        name="editDescription" id="editDescription" [(ngModel)]="editDescription"></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        (click)="onEditTodo()">Edit</button>
+
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,69 @@
+.profile-container {
+    padding-top: 200px;
+    padding-bottom: 100px;
+
+}
+
+.col-content {
+    display: flex;
+    align-items: center;
+}
+
+.profile-items {
+    margin: 0;
+    font-size: 15px;
+
+}
+
+.profile-field {
+    font-size: 17px;
+}
+
+.admin-access {
+    color: red;
+}
+
+.user-access {
+    color: gray;
+}
+
+
+.item-row {
+
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    border: solid 1px lightgray;
+}
+
+.main-row {
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: solid 1px lightgray;
+    min-height: 300px;
+    padding: 50px 20px 50px 20px
+}
+
+.col-edit {
+
+    justify-content: end;
+}
+
+.col-value {
+    justify-content: center;
+}
+
+.input-item {
+
+    max-width: 240px;
+    margin-bottom: 10px;
+}
+
+.form-button {
+    margin-left: 10px;
+}
+
+.buttons-control {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
