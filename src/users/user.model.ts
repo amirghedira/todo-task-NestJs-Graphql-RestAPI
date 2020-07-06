@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose'
+import { ObjectType, Field } from '@nestjs/graphql'
 
 
 export const UserSchema = new mongoose.Schema({
@@ -10,11 +11,3 @@ export const UserSchema = new mongoose.Schema({
     adminAccess: { type: Boolean, default: false }
 
 })
-export interface User {
-    _id: string;
-    username: string;
-    password: string;
-    name: string;
-    surname: string;
-    adminAccess: boolean;
-}

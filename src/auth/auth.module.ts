@@ -4,12 +4,12 @@ import { UserModule } from 'src/users/user.module';
 import { JwtStrategy } from './jwt.strategy';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from 'src/users/user.model';
-import { LocalStrategy } from './local.strategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
     imports: [
         UserModule
     ],
-    providers: [AuthService, JwtStrategy, LocalStrategy]
+    providers: [AuthService, JwtStrategy]
 })
 export class AuthModule { }

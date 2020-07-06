@@ -9,19 +9,14 @@ export class AuthService {
 
     constructor(private userService: UserService) { }
 
-    async validateUser(username: string, password: string) {
-        const user = await this.userService.getUserByUsrname(username);
-        const result = await bcrypt.compare(password, user.password)
+    async login(loginInput: any) {
+        const user = await this.userService.getUserByUsrname(loginInput.username);
+        const result = await bcrypt.compare(loginInput.password, user.password)
         if (user && result) {
-            return user;
+            return jwt.sign({ username: user.username, _id: user._id }, process.env.JWT_SECRET_KEY)
         }
-        return null;
-    }
-    async login(user: any) {
-        const payload = { username: user.username, _id: user._id };
-        return {
-            access_token: jwt.sign(payload, 'jwtsecretkey')
-        };
+        return null
+
     }
 
 }

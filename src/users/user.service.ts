@@ -1,12 +1,15 @@
 import { Injectable, HttpException, HttpStatus } from "@nestjs/common";
 import { Model } from 'mongoose'
 import { InjectModel } from '@nestjs/mongoose'
-import { User } from './user.model'
 import * as bcrypt from 'bcrypt'
+
+import * as jwt from 'jsonwebtoken'
+import { User } from "./types/user";
 @Injectable()
 export class UserService {
 
     constructor(@InjectModel('User') private UserModel: Model<User>) { }
+
 
     getUsers = async () => {
         try {
@@ -37,8 +40,7 @@ export class UserService {
                     password: hashedpass,
                     adminAccess: accessAdmin
                 })
-                const createduser = await newUser.save()
-                return createduser._id;
+                return await newUser.save()
             }
             throw new HttpException('user already exists', HttpStatus.CONFLICT)
         } catch (error) {
@@ -137,7 +139,7 @@ export class UserService {
         }
 
     }
-    deleteUser = async (userId: string, senderId: string) => {
+    deleteUser = async (senderId: string, userId: string) => {
 
         try {
             const user = await this.UserModel.findOne({ _id: senderId })

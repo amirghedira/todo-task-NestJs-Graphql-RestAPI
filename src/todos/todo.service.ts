@@ -1,8 +1,8 @@
 import { Injectable, Inject, HttpException, HttpStatus } from "@nestjs/common";
 import { InjectModel } from '@nestjs/mongoose'
-import { Todo } from './todo.model'
 import { Model } from 'mongoose'
 import { UserService } from "src/users/user.service";
+import { Todo } from "./types/todo";
 @Injectable()
 export class TodoService {
 
@@ -32,7 +32,7 @@ export class TodoService {
     }
     getUserTodos = async (userId: string) => {
         try {
-            const userTodos = await this.TodoModel.find({ userid: userId }).populate([{ path: 'writerid' }]).exec()
+            const userTodos = await this.TodoModel.find({ userid: userId }).populate([{ path: 'userid' }, { path: 'writerid' }]).exec()
             return userTodos
         } catch (error) {
 
@@ -52,7 +52,7 @@ export class TodoService {
                     date: new Date().toISOString()
                 })
                 const createdTodo = await newTodo.save();
-                const todo = await this.TodoModel.findById(createdTodo._id).populate('userid')
+                const todo = await this.TodoModel.findById(createdTodo._id).populate([{ path: 'userid' }, { path: 'writerid' }])
                 return todo
             } catch (error) {
 
@@ -94,7 +94,7 @@ export class TodoService {
 
         }
     }
-    editTodo = async (todoId: string, userid: string, title: string, description: string) => {
+    editTodo = async (userid: string, todoId: string, title: string, description: string) => {
 
         try {
             const user = await this.userService.getUser(userid)

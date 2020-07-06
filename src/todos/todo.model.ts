@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose'
-
+import { ObjectType, Field } from '@nestjs/graphql'
+import { UserType } from 'src/users/types/user.type';
 
 export const TodoSchema = new mongoose.Schema({
     userid: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -10,11 +11,3 @@ export const TodoSchema = new mongoose.Schema({
     state: { type: Boolean, default: false }
 })
 
-export interface Todo {
-    _id: string;
-    userid: string;
-    title: string;
-    description: string;
-    date: Date
-    state: boolean
-}
