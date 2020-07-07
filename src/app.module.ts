@@ -11,6 +11,7 @@ import { GraphQLModule } from '@nestjs/graphql'
         MongooseModule.forRoot(process.env.MONGO_INFO),
         GraphQLModule.forRoot({
             autoSchemaFile: 'schema.gql',
+            cors: true,
             context: ({ req }) => ({ req })
         }),
         TodoModule,

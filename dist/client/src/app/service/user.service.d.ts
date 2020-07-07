@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { Apollo } from 'apollo-angular';
 export declare class UserService {
     private http;
     private authService;
+    private apollo;
     private userCon;
     userConnected: import("rxjs").Observable<any>;
-    constructor(http: HttpClient, authService: AuthService);
-    userLogin(username: string, password: string): import("rxjs").Observable<Object>;
+    constructor(http: HttpClient, authService: AuthService, apollo: Apollo);
+    userLogin(username: string, password: string): import("rxjs").Observable<import("apollo-client").ApolloQueryResult<any>>;
     getUsers(): import("rxjs").Observable<Object>;
     getUser(userId: string): import("rxjs").Observable<Object>;
     getConnectUser(): import("rxjs").Observable<Object>;

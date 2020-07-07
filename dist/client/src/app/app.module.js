@@ -21,6 +21,9 @@ const todo_service_1 = require("./service/todo.service");
 const user_service_1 = require("./service/user.service");
 const auth_service_1 = require("./service/auth.service");
 const profile_component_1 = require("./profile/profile.component");
+const apollo_angular_1 = require("apollo-angular");
+const apollo_angular_link_http_1 = require("apollo-angular-link-http");
+const apollo_cache_inmemory_1 = require("apollo-cache-inmemory");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,9 +35,22 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             app_routing_module_1.AppRoutingModule,
             forms_1.FormsModule,
-            http_1.HttpClientModule
+            http_1.HttpClientModule,
+            apollo_angular_1.ApolloModule,
+            apollo_angular_link_http_1.HttpLinkModule
         ],
-        providers: [todo_service_1.TodoService, user_service_1.UserService, auth_service_1.AuthService],
+        providers: [todo_service_1.TodoService, user_service_1.UserService, auth_service_1.AuthService, {
+                provide: apollo_angular_1.APOLLO_OPTIONS,
+                useFactory: (httpLink) => {
+                    return {
+                        cache: new apollo_cache_inmemory_1.InMemoryCache(),
+                        link: httpLink.create({
+                            uri: "http://localhost:3000/graphql"
+                        })
+                    };
+                },
+                deps: [apollo_angular_link_http_1.HttpLink]
+            }],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

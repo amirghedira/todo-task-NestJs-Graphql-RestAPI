@@ -14,10 +14,11 @@ export class NavbarComponent implements OnInit {
     status: boolean;
     user: any;
     loading: boolean;
-    constructor(private router: Router, private userService: UserService, private authService: AuthService) {
+    constructor(private router: Router, public userService: UserService, public authService: AuthService) {
         this.status = false;
         this.loading = false;
         this.userService.userConnected.subscribe((token) => {
+            console.log(token)
             if (token)
                 this.userService.getConnectUser().subscribe((user: any) => {
                     if (user) {
@@ -57,7 +58,7 @@ export class NavbarComponent implements OnInit {
     onDisconnect() {
         this.authService.eraseToken();
         this.status = false;
-        this.router.navigate(['/login'])
+        this.router.navigate(['/user/login'])
     }
 
 }

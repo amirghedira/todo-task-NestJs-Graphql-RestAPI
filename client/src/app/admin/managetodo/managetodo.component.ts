@@ -1,17 +1,19 @@
 import { OnInit, Component } from '@angular/core';
-import { UserService } from '../service/user.service';
-import { TodoService } from '../service/todo.service';
+
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AuthService } from '../service/auth.service';
+;
 import * as moment from 'moment'
+import { UserService } from 'src/app/service/user.service';
+import { TodoService } from 'src/app/service/todo.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 @Component({
-    templateUrl: './todo.component.html',
-    styleUrls: ['./todo.component.css']
+    templateUrl: './managetodo.component.html',
+    styleUrls: ['./managetodo.component.css']
 })
-export class TodoComponent implements OnInit {
+export class ManageTodoComponent implements OnInit {
 
     todos: any;
     title: string;
@@ -28,28 +30,20 @@ export class TodoComponent implements OnInit {
         if (this.authService.getToken()) {
             this.userService.getConnectUser().subscribe((user: any) => {
                 this.connectedUser = user
-                if (user.adminAccess) {
-                    this.userService.getUsers().subscribe((users: any) => {
-                        this.users = users.filter(usr => { return usr._id != user._id })
-                    })
-                    this.todoService.getTodos().subscribe((todos: any) => {
-                        todos.reverse()
-                        this.todos = todos;
 
-                    })
-                } else {
-                    this.users = [];
-                    this.todoService.getUserTodo().subscribe((todos: any) => {
-                        todos.reverse()
-                        this.todos = todos;
-                    })
-                }
+                this.userService.getUsers().subscribe((users: any) => {
+                    this.users = users.filter(usr => { return usr._id != user._id })
+                })
+                this.todoService.getTodos().subscribe((todos: any) => {
+                    todos.reverse()
+                    this.todos = todos;
+
+                })
             })
 
         }
-
         else
-            this.router.navigate(['/login'])
+            this.router.navigate(['/user/login'])
 
     }
     onPost() {
@@ -68,10 +62,6 @@ export class TodoComponent implements OnInit {
 
         return moment(date).fromNow()
 
-    }
-    checkAdminAccess() {
-
-        return this.connectedUser.adminAccess;
     }
     onClickEditTodo(todoid) {
         this.toEditId = todoid

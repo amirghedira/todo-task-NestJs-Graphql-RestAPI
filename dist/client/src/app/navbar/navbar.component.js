@@ -52,7 +52,7 @@ let NavbarComponent = class NavbarComponent {
     onDisconnect() {
         this.authService.eraseToken();
         this.status = false;
-        this.router.navigate(['/login']);
+        this.router.navigate(['/user/login']);
     }
 };
 NavbarComponent = __decorate([

@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginComponent = void 0;
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
-const sweetalert2_1 = require("sweetalert2");
 const todo_service_1 = require("../service/todo.service");
 const user_service_1 = require("../service/user.service");
 const auth_service_1 = require("../service/auth.service");
@@ -25,19 +24,13 @@ let LoginComponent = class LoginComponent {
     }
     ngOnInit() {
         if (localStorage.getItem('token'))
-            this.router.navigate(['/todos']);
+            this.router.navigate(['/user/todos']);
     }
     onConnect() {
-        this.userService.userLogin(this.username, this.password).subscribe(((response) => {
-            this.authService.setToken(response.access_token);
-            this.userService.login(response.access_token);
-            this.router.navigate(['/todos']);
-        }), (error) => {
-            sweetalert2_1.default.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Invalid username or password'
-            });
+        this.userService.userLogin(this.username, this.password).subscribe(({ data, loading }) => {
+            this.authService.setToken(data.login);
+            this.userService.login(data.login);
+            this.router.navigate(['/user/todos']);
         });
     }
 };

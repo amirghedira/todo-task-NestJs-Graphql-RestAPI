@@ -2,17 +2,36 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { AuthService } from './auth.service';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 
 @Injectable()
 
 export class UserService {
 
-    private userCon = new BehaviorSubject(null);
+    userCon = new BehaviorSubject(null);
     userConnected = this.userCon.asObservable();
 
-    constructor(private http: HttpClient, private authService: AuthService) { }
+    constructor(private http: HttpClient, private authService: AuthService, private apollo: Apollo) {
+    }
 
+    // userLogin(username: string, password: string) {
+
+    //     const loginQuery = gql`
+    //     query{
+    //         login(loginInput:{
+    //           username:"${username}"
+    //           password:"${password}"
+    //         })
+    //       }
+    //       `;
+
+    //     return this.apollo.watchQuery<any>({
+    //         query: loginQuery
+    //     }).valueChanges
+
+    // }
     userLogin(username: string, password: string) {
 
         return this.http.post('http://localhost:3000/user/login', { username, password })
@@ -31,8 +50,9 @@ export class UserService {
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
         return this.http.get('http://localhost:3000/user/token', { headers: headers })
     }
-    login(user: any) {
-        this.userCon.next(user);
+    login(token: string) {
+        console.log('hh')
+        return this.userCon.next(token);
     }
     addUser(username: string, password: string, name: string, surname: string) {
         const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());

@@ -26,8 +26,8 @@ let UserResolver = class UserResolver {
         this.userService = userService;
         this.authService = authService;
     }
-    login(loginInput) {
-        return this.authService.login(loginInput);
+    async login(loginInput) {
+        return await this.authService.login(loginInput);
     }
     getUsers() {
         return this.userService.getUsers();
@@ -55,11 +55,11 @@ let UserResolver = class UserResolver {
     }
 };
 __decorate([
-    graphql_1.Query(() => String, { nullable: true }),
+    graphql_1.Query(() => String),
     __param(0, graphql_1.Args('loginInput')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_input_1.LoginInput]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UserResolver.prototype, "login", null);
 __decorate([
     graphql_1.Query(() => [user_type_1.UserType]),

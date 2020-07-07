@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
-import { UserService } from '../service/user.service';
+import { UserService } from 'src/app/service/user.service';
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html',

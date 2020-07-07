@@ -14,15 +14,28 @@ const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
 const rxjs_1 = require("rxjs");
 const auth_service_1 = require("./auth.service");
+const apollo_angular_1 = require("apollo-angular");
+const graphql_tag_1 = require("graphql-tag");
 let UserService = class UserService {
-    constructor(http, authService) {
+    constructor(http, authService, apollo) {
         this.http = http;
         this.authService = authService;
+        this.apollo = apollo;
         this.userCon = new rxjs_1.BehaviorSubject(null);
         this.userConnected = this.userCon.asObservable();
     }
     userLogin(username, password) {
-        return this.http.post('http://localhost:3000/user/login', { username, password });
+        const loginQuery = graphql_tag_1.default `
+        query{
+            login(loginInput:{
+              username:"${username}"
+              password:"${password}"
+            })
+          }
+          `;
+        return this.apollo.watchQuery({
+            query: loginQuery
+        }).valueChanges;
     }
     getUsers() {
         return this.http.get('http://localhost:3000/user');
@@ -56,7 +69,7 @@ let UserService = class UserService {
 };
 UserService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.HttpClient, auth_service_1.AuthService])
+    __metadata("design:paramtypes", [http_1.HttpClient, auth_service_1.AuthService, apollo_angular_1.Apollo])
 ], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

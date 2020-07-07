@@ -7,22 +7,24 @@
     <div class="collapse navbar-collapse nav-control" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['/user/todos']">Home <span class="sr-only">(current)</span></a>
             </li>
 
         </ul>
         <form class="form-inline my-2 my-lg-0 control-form">
             <button *ngIf="!status" class="btn btn-outline-success my-2 my-sm-0 nav-button"
-                [routerLink]="['/login']">Login</button>
+                [routerLink]="['/user/login']">Login</button>
             <button *ngIf="!status" class="btn btn-outline-warning my-2 my-sm-0 nav-button"
-                [routerLink]="['/signup']">Sign up</button>
+                [routerLink]="['/user/signup']">Sign up</button>
             <div *ngIf="status" class="dropdown dropdown-user">
                 <button class="btn btn-secondary dropdown-toggle dropdown-name" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{user.username}}
                 </button>
                 <div class="dropdown-menu">
-                    <button class="dropdown-item" [routerLink]="['/profile/',user._id]">Profile</button>
+                    <button *ngIf="user.adminAccess" class="dropdown-item"
+                        [routerLink]="['/admin/manage-todo/',user._id]">Dashboard</button>
+                    <button class="dropdown-item" [routerLink]="['/user/profile/',user._id]">Profile</button>
                     <button class="dropdown-item" (click)="onDisconnect()">Disconnect</button>
 
                 </div>

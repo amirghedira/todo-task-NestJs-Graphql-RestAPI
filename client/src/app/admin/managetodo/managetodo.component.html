@@ -4,7 +4,7 @@
         <div class="row todo-container">
 
 
-            <div *ngIf="checkAdminAccess()" class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-4">
                 <div class="add-task">
 
                     <h4>Add Tasks</h4>
@@ -38,9 +38,9 @@
 
                                 <h5 class="todo-title">{{todo.title}}</h5>
                             </div>
-                            <p class="display-date">Assigned {{checkAdminAccess()? 'to' : 'by'}} <a class="profile-name"
-                                    [routerLink]="['/profile/',todo.userid._id]">
-                                    {{checkAdminAccess()? todo.userid.name +' '+todo.userid.surname : todo.writerid.name+' '+todo.writerid.surname}}</a>
+                            <p class="display-date">Assigned to <a class="profile-name"
+                                    [routerLink]="['/admin/manage-profile/',todo.userid._id]">
+                                    {{ todo.userid.name +' '+todo.userid.surname }}</a>
                                 ,{{transformDate(todo.date)}}
                             </p>
                         </div>
@@ -56,13 +56,10 @@
                                         (click)="oneditTodoState(todo._id,false)">Opentask</button>
                                     <button class="dropdown-item" (click)="oneditTodoState(todo._id,true)">End
                                         task</button>
-                                    <button *ngIf="checkAdminAccess()" class="dropdown-item"
-                                        (click)="onClickEditTodo(todo._id)" data-toggle="modal"
-                                        data-target="#myModal">Edit Todo</button>
-                                    <button *ngIf="checkAdminAccess()" class="dropdown-item"
-                                        (click)="onDeleteTodo(todo._id)">Delete Todo</button>
-                                    <button *ngIf="checkAdminAccess()" class="dropdown-item"
-                                        (click)="onDeleteUser(todo.userid._id)">Delete
+                                    <button class="dropdown-item" (click)="onClickEditTodo(todo._id)"
+                                        data-toggle="modal" data-target="#myModal">Edit Todo</button>
+                                    <button class="dropdown-item" (click)="onDeleteTodo(todo._id)">Delete Todo</button>
+                                    <button class="dropdown-item" (click)="onDeleteUser(todo.userid._id)">Delete
                                         user</button>
                                 </div>
                             </div>

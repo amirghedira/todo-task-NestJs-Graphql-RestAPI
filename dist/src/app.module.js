@@ -23,6 +23,7 @@ AppModule = __decorate([
             mongoose_1.MongooseModule.forRoot(process.env.MONGO_INFO),
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: 'schema.gql',
+                cors: true,
                 context: ({ req }) => ({ req })
             }),
             todo_module_1.TodoModule,

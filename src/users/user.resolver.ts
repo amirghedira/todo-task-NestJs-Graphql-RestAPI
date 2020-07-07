@@ -14,11 +14,11 @@ export class UserResolver {
     constructor(private userService: UserService, private authService: AuthService) { }
 
 
-    @Query(() => String, { nullable: true })
-    login(
+    @Query(() => String)
+    async login(
         @Args('loginInput') loginInput: LoginInput
     ) {
-        return this.authService.login(loginInput)
+        return await this.authService.login(loginInput)
 
     }
 

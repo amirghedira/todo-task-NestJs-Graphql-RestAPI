@@ -47,7 +47,7 @@ let TodoComponent = class TodoComponent {
             });
         }
         else
-            this.router.navigate(['/login']);
+            this.router.navigate(['/user/login']);
     }
     onPost() {
         const userIndex = this.users.findIndex(user => user.username === this.selectedUser);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from '../service/user.service';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UserService } from 'src/app/service/user.service';
 
 
 
@@ -22,12 +22,10 @@ export class ProfileComponent implements OnInit {
     repassword: string;
     oldpassword: string;
     newpassword: string;
-    selectedAccess: string;
     editingUsername: boolean;
     editingName: boolean;
     editingSurname: boolean;
     editingPassword: boolean;
-    editAccess: boolean;
 
     constructor(private userService: UserService, private route: ActivatedRoute) {
 
@@ -42,18 +40,7 @@ export class ProfileComponent implements OnInit {
     onEditSurname() {
         this.editingSurname = !this.editingSurname
     }
-    onEditAccess() {
-        this.editAccess = !this.editAccess
-    }
-    selectChanged() {
-        let adminAccess = this.selectedAccess == 'Admin';
-        this.userService.updateUser(this.userProfile._id, this.username, this.name, this.surname, adminAccess).subscribe(response => {
-            console.log(response)
-            this.userProfile.adminAccess = adminAccess
-            this.editAccess = false;
-        })
 
-    }
     onEditPassword() {
         this.editingPassword = !this.editingPassword
     }
@@ -108,7 +95,6 @@ export class ProfileComponent implements OnInit {
                     this.username = user.username
                     this.surname = user.surname
                     this.name = user.name
-                    this.selectedAccess = user.selectedAccess
                     this.userService.getConnectUser().subscribe((connectedUser: any) => {
                         this.ownProfile = connectedUser._id === user._id || connectedUser.adminAccess
                         this.connectedUser = connectedUser;

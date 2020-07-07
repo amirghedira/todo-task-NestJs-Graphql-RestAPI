@@ -1,7 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppRoutes } from './app.routing';
 
+export const AppRoutes: Routes = [
+    {
+        path: '',
+        redirectTo: 'user/login',
+        pathMatch: 'full',
+    },
+    {
+        path: 'admin',
+        loadChildren: './admin/admin.module#AdminModule',
+
+    },
+    {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule',
+
+    },
+];
 
 
 @NgModule({
