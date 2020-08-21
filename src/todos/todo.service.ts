@@ -8,11 +8,12 @@ export class TodoService {
 
     constructor(@InjectModel('Todo') private TodoModel: Model<Todo>, private userService: UserService) { }
 
-    getTodos = async () => {
+
+    getAssignedTodos = async (userId: string) => {
 
         try {
 
-            const todos = await this.TodoModel.find().populate([{ path: 'userid', writerid: 'writerid' }]).exec();
+            const todos = await this.TodoModel.find({ writerid: userId }).populate([{ path: 'userid' }, { path: 'writerid' }]).exec();
             return todos
         } catch (error) {
 
@@ -71,7 +72,7 @@ export class TodoService {
                 if (user.adminAccess || user._id === todo.userid) {
 
                     await this.TodoModel.deleteOne({ _id: todoid })
-                    return { message: 'todo successfully deleted' }
+                    return todo
                 }
                 else
                     throw new HttpException('access denied', HttpStatus.FORBIDDEN);
@@ -86,8 +87,8 @@ export class TodoService {
     editTodoState = async (todoId: string, todoState: boolean) => {
 
         try {
-            await this.TodoModel.updateOne({ _id: todoId }, { $set: { state: todoState } })
-            return { message: 'todo successfully updated' }
+            const updatedTodo = await this.TodoModel.findByIdAndUpdate(todoId, { $set: { state: todoState } })
+            return updatedTodo
 
         } catch (error) {
             return new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR)
@@ -104,8 +105,8 @@ export class TodoService {
 
                     todo.title = title;
                     todo.description = description;
-                    await todo.save()
-                    return { message: 'todo successfully updated' }
+                    const updatedTodo = await todo.save()
+                    return updatedTodo
                 }
                 else
                     throw new HttpException('access denied', HttpStatus.FORBIDDEN);

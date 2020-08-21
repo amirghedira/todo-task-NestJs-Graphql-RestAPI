@@ -13,11 +13,15 @@ const user_model_1 = require("./user.model");
 const user_service_1 = require("./user.service");
 const auth_service_1 = require("../auth/auth.service");
 const user_resolver_1 = require("./user.resolver");
+const todo_model_1 = require("../todos/todo.model");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
     common_1.Module({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'User', schema: user_model_1.UserSchema }])],
+        imports: [mongoose_1.MongooseModule.forFeature([
+                { name: 'User', schema: user_model_1.UserSchema },
+                { name: 'Todo', schema: todo_model_1.TodoSchema }
+            ])],
         providers: [user_service_1.UserService, auth_service_1.AuthService, user_resolver_1.UserResolver],
         exports: [user_service_1.UserService]
     })

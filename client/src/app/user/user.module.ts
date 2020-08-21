@@ -5,21 +5,45 @@ import { TodoService } from '../service/todo.service';
 import { UserService } from '../service/user.service';
 import { AuthService } from '../service/auth.service';
 import { ProfileComponent } from './profile/profile.component';
-import { SignUpComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
 import { TodoPageComponent } from './todo-page/todo-page.component';
-import { UserRoutingModule } from './user-routing.module';
 import { CommonModule } from '@angular/common';
+import { NavBarModule } from '../navbar/navbar.module';
+import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+
+
+const userRoutes: Routes = [
+    {
+        path: '',
+        component: UserComponent,
+        children: [
+            {
+                path: 'todos',
+                component: TodoPageComponent
+            },
+            {
+                path: 'profile/:id',
+                component: ProfileComponent
+            },
+            {
+                path: '',
+                redirectTo: '/',
+            },
+
+        ]
+
+    }
+
+];
 
 @NgModule({
     declarations: [
-        UserComponent, ProfileComponent, SignUpComponent, LoginComponent, TodoPageComponent
+        UserComponent, ProfileComponent, TodoPageComponent
     ],
     imports: [
+        RouterModule.forChild(userRoutes),
         CommonModule,
-        UserRoutingModule,
+        NavBarModule,
         FormsModule
     ],
     providers: [TodoService, UserService, AuthService]

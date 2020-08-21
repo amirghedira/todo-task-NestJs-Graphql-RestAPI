@@ -3,10 +3,10 @@ import { UserService } from './user.service';
 import { CurrentUser } from 'src/auth/currentuser.decorator';
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from 'src/auth/gql-auth.gard';
-import { AuthService } from 'src/auth/auth.service';
-import { UserType } from './types/user.type';
+import { UserType, LoggedUserType } from './types/user.type';
 import { AddUserInput, LoginInput, UpdateUserInput, UpdatePasswordInput } from './types/user.input';
 import { User } from './types/user';
+import { AuthService } from 'src/auth/auth.service';
 
 @Resolver('User')
 export class UserResolver {
@@ -14,7 +14,7 @@ export class UserResolver {
     constructor(private userService: UserService, private authService: AuthService) { }
 
 
-    @Query(() => String)
+    @Query(() => LoggedUserType)
     async login(
         @Args('loginInput') loginInput: LoginInput
     ) {
@@ -32,6 +32,7 @@ export class UserResolver {
     @UseGuards(GqlAuthGuard)
     @Query(() => UserType)
     getUserWithToken(@CurrentUser() user: any) {
+
         return this.userService.getUser(user._id)
     }
 
@@ -40,7 +41,6 @@ export class UserResolver {
         return this.userService.getUser(userid)
     }
 
-    @UseGuards(GqlAuthGuard)
     @Mutation(() => UserType)
     addUser(@Args('UserInput') addUserInput: AddUserInput) {
         const { username, password, name, surname } = addUserInput

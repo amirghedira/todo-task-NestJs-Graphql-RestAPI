@@ -23,22 +23,15 @@ export class TodoPageComponent implements OnInit {
     constructor(private router: Router, private readonly userService: UserService, private readonly todoService: TodoService, private authService: AuthService) { }
     connectedUser;
     ngOnInit() {
-
-        if (this.authService.getToken()) {
-            this.userService.getConnectUser().subscribe((user: any) => {
-                this.connectedUser = user
-
-                this.todoService.getUserTodo().subscribe((todos: any) => {
-                    todos.reverse()
-                    this.todos = todos;
-                })
-
+        this.userService.getConnectUser().subscribe((response: any) => {
+            console.log(response.data.getUserWithToken)
+            this.connectedUser = response.data.getUserWithToken
+            this.todoService.getUserTodo().subscribe((response: any) => {
+                response.data.getUserTodos.reverse()
+                this.todos = response.data.getUserTodos;
             })
 
-        }
-
-        else
-            this.router.navigate(['/user/login'])
+        })
 
     }
     checkEmpty() {

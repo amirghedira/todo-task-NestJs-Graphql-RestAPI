@@ -25,59 +25,71 @@ let TodoResolver = class TodoResolver {
     constructor(todoService) {
         this.todoService = todoService;
     }
-    async getTodos() {
-        return this.todoService.getTodos();
+    async getUserTodos(user) {
+        return await this.todoService.getUserTodos(user._id);
     }
-    userTodos(user) {
-        console.log(user);
-        return this.todoService.getUserTodos(user._id);
+    async userTodos(user) {
+        return await this.todoService.getUserTodos(user._id);
     }
-    getTodo(todoId) {
-        return this.todoService.getTodo(todoId);
+    async getAssignedTodos(user) {
+        return await this.todoService.getAssignedTodos(user._id);
     }
-    addTodo(addTodoInput, user) {
+    async getTodo(todoId) {
+        return await this.todoService.getTodo(todoId);
+    }
+    async addTodo(addTodoInput, user) {
         const { userId, title, description } = addTodoInput;
-        return this.todoService.addTodo(user._id, userId, title, description);
+        return await this.todoService.addTodo(user._id, userId, title, description);
     }
-    deleteTodo(todoId, user) {
-        return this.todoService.deleteTodo(todoId, user._id);
+    async deleteTodo(todoId, user) {
+        return await this.todoService.deleteTodo(todoId, user._id);
     }
-    updateState(todoId, state) {
-        return this.todoService.editTodoState(todoId, state);
+    async updateState(todoId, state) {
+        return await this.todoService.editTodoState(todoId, state);
     }
-    updateTodo(updateTodoInput, user) {
+    async updateTodo(updateTodoInput, user) {
         const { todoId, title, description } = updateTodoInput;
-        return this.todoService.editTodo(user._id, todoId, title, description);
+        return await this.todoService.editTodo(user._id, todoId, title, description);
     }
 };
-__decorate([
-    graphql_1.Query(() => [todo_type_1.TodoType]),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], TodoResolver.prototype, "getTodos", null);
 __decorate([
     common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
     graphql_1.Query(() => [todo_type_1.TodoType]),
     __param(0, currentuser_decorator_1.CurrentUser()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
+], TodoResolver.prototype, "getUserTodos", null);
+__decorate([
+    common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
+    graphql_1.Query(() => [todo_type_1.TodoType]),
+    __param(0, currentuser_decorator_1.CurrentUser()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
 ], TodoResolver.prototype, "userTodos", null);
+__decorate([
+    common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
+    graphql_1.Query(() => [todo_type_1.TodoType]),
+    __param(0, currentuser_decorator_1.CurrentUser()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], TodoResolver.prototype, "getAssignedTodos", null);
 __decorate([
     graphql_1.Query(() => todo_type_1.TodoType),
     __param(0, graphql_1.Args('todoId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TodoResolver.prototype, "getTodo", null);
 __decorate([
     common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
-    graphql_1.Query(() => [todo_type_1.TodoType]),
+    graphql_1.Mutation(() => todo_type_1.TodoType),
     __param(0, graphql_1.Args('addTodoInput')), __param(1, currentuser_decorator_1.CurrentUser()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [todo_input_1.AddTodoInput, Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TodoResolver.prototype, "addTodo", null);
 __decorate([
     common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
@@ -85,7 +97,7 @@ __decorate([
     __param(0, graphql_1.Args('todoId')), __param(1, currentuser_decorator_1.CurrentUser()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TodoResolver.prototype, "deleteTodo", null);
 __decorate([
     common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
@@ -93,7 +105,7 @@ __decorate([
     __param(0, graphql_1.Args('todoId')), __param(1, graphql_1.Args('state')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, Boolean]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TodoResolver.prototype, "updateState", null);
 __decorate([
     common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
@@ -101,7 +113,7 @@ __decorate([
     __param(0, graphql_1.Args('updateTodoInput')), __param(1, currentuser_decorator_1.CurrentUser()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [todo_input_1.UpdateTodoInput, Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TodoResolver.prototype, "updateTodo", null);
 TodoResolver = __decorate([
     graphql_1.Resolver('Todo'),

@@ -18,9 +18,9 @@ const user_service_1 = require("./user.service");
 const currentuser_decorator_1 = require("../auth/currentuser.decorator");
 const common_1 = require("@nestjs/common");
 const gql_auth_gard_1 = require("../auth/gql-auth.gard");
-const auth_service_1 = require("../auth/auth.service");
 const user_type_1 = require("./types/user.type");
 const user_input_1 = require("./types/user.input");
+const auth_service_1 = require("../auth/auth.service");
 let UserResolver = class UserResolver {
     constructor(userService, authService) {
         this.userService = userService;
@@ -55,7 +55,7 @@ let UserResolver = class UserResolver {
     }
 };
 __decorate([
-    graphql_1.Query(() => String),
+    graphql_1.Query(() => user_type_1.LoggedUserType),
     __param(0, graphql_1.Args('loginInput')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_input_1.LoginInput]),
@@ -83,7 +83,6 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserResolver.prototype, "getUser", null);
 __decorate([
-    common_1.UseGuards(gql_auth_gard_1.GqlAuthGuard),
     graphql_1.Mutation(() => user_type_1.UserType),
     __param(0, graphql_1.Args('UserInput')),
     __metadata("design:type", Function),

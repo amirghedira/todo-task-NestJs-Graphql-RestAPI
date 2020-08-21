@@ -6,3 +6,7 @@ export declare class UserType {
     surname: string;
     adminAccess: boolean;
 }
+export declare class LoggedUserType {
+    user: UserType;
+    token: string;
+}

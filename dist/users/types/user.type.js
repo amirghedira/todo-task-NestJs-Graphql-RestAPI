@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserType = void 0;
+exports.LoggedUserType = exports.UserType = void 0;
 const graphql_1 = require("@nestjs/graphql");
 let UserType = class UserType {
 };
@@ -41,4 +41,18 @@ UserType = __decorate([
     graphql_1.ObjectType()
 ], UserType);
 exports.UserType = UserType;
+let LoggedUserType = class LoggedUserType {
+};
+__decorate([
+    graphql_1.Field(),
+    __metadata("design:type", UserType)
+], LoggedUserType.prototype, "user", void 0);
+__decorate([
+    graphql_1.Field(),
+    __metadata("design:type", String)
+], LoggedUserType.prototype, "token", void 0);
+LoggedUserType = __decorate([
+    graphql_1.ObjectType()
+], LoggedUserType);
+exports.LoggedUserType = LoggedUserType;
 //# sourceMappingURL=user.type.js.map

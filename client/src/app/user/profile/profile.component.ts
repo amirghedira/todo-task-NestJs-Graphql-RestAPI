@@ -90,14 +90,14 @@ export class ProfileComponent implements OnInit {
 
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has('id')) {
-                this.userService.getUser(paramMap.get('id')).subscribe((user: any) => {
-                    this.userProfile = user
-                    this.username = user.username
-                    this.surname = user.surname
-                    this.name = user.name
-                    this.userService.getConnectUser().subscribe((connectedUser: any) => {
-                        this.ownProfile = connectedUser._id === user._id || connectedUser.adminAccess
-                        this.connectedUser = connectedUser;
+                this.userService.getUser(paramMap.get('id')).subscribe((response: any) => {
+                    this.userProfile = response.data.getUser
+                    this.username = this.userProfile.username
+                    this.surname = this.userProfile.surname
+                    this.name = this.userProfile.name
+                    this.userService.getConnectUser().subscribe((response: any) => {
+                        this.ownProfile = response.data.getUserWithToken._id === this.userProfile._id || response.data.getUserWithToken.adminAccess
+                        this.connectedUser = response.data.getUserWithToken;
                         this.loading = false
                     })
                 })

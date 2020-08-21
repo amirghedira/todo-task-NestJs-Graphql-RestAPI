@@ -25,46 +25,114 @@ let UserService = class UserService {
         this.userConnected = this.userCon.asObservable();
     }
     userLogin(username, password) {
-        const loginQuery = graphql_tag_1.default `
-        query{
-            login(loginInput:{
-              username:"${username}"
-              password:"${password}"
-            })
-          }
-          `;
-        return this.apollo.watchQuery({
-            query: loginQuery
-        }).valueChanges;
+        return this.apollo.query({
+            query: graphql_tag_1.default `
+            query{
+                login(loginInput:{
+                  username:"${username}",
+                  password:"${password}"
+                }){
+                    user{
+                        username
+                        _id
+                    }
+                    token   
+                }
+              }
+              `,
+            fetchPolicy: 'network-only'
+        });
     }
     getUsers() {
-        return this.http.get('http://localhost:3000/user');
+        return this.apollo.query({
+            query: graphql_tag_1.default `
+            query{
+                getUsers{
+                    _id
+                    username
+                    name
+                    surname
+                    adminAccess
+                }
+            }
+              `,
+            fetchPolicy: 'network-only'
+        });
     }
     getUser(userId) {
-        return this.http.get('http://localhost:3000/user/' + userId);
+        return this.apollo.query({
+            query: graphql_tag_1.default `query{
+                getUser(userid:"${userId}"){
+                    username
+                    name
+                    _id
+                    surname
+                    adminAccess
+                }
+            }`,
+            fetchPolicy: 'network-only'
+        });
     }
     getConnectUser() {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.get('http://localhost:3000/user/token', { headers: headers });
+        return this.apollo.query({
+            query: graphql_tag_1.default `
+            query{
+                getUserWithToken{
+                    username
+                    _id
+                    name
+                    surname
+                    adminAccess
+                }
+              }
+              `,
+            fetchPolicy: 'no-cache'
+        });
     }
-    login(user) {
-        this.userCon.next(user);
+    login(token) {
+        return this.userCon.next(token);
     }
     addUser(username, password, name, surname) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.post('http://localhost:3000/user', { username, password, name, surname }, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `
+                mutation{
+                    addUser(UserInput:{username:"${username}", name:"${name}",surname:"${surname}",password:"${password}"}){_id}
+                }
+              `
+        });
     }
     deleteUser(userId) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.delete('http://localhost:3000/user/' + userId, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+                deleteUser(userid:"${userId}"){
+                    username
+                    name
+                    _id
+                    surname
+                    adminAccess
+                }
+            }`
+        });
     }
     updateUser(userId, username, name, surname, access) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.patch('http://localhost:3000/user/' + userId, { username, surname, name, access }, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+                updateUser(UpdateUserInput:{userId:"${userId}",username:"${username}",name:"${name}",surname:"${surname}",access:"${access}"}){
+                    _id
+                    username
+                }
+            }`
+        });
     }
     updateUserPassword(userId, oldPassword, newPassword) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.patch('http://localhost:3000/user/password/' + userId, { newPassword, oldPassword }, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+                 updateUserPassword(UpdatePasswordInput:{userId:"${userId}" ,oldPassword:"${oldPassword}",newPassword:"${newPassword}"}){
+                    _id
+                    username
+                }
+            }`
+        });
     }
 };
 UserService = __decorate([

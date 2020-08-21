@@ -5,10 +5,11 @@ import * as bcrypt from 'bcrypt'
 
 import * as jwt from 'jsonwebtoken'
 import { User } from "./types/user";
+import { Todo } from "src/todos/types/todo";
 @Injectable()
 export class UserService {
 
-    constructor(@InjectModel('User') private UserModel: Model<User>) { }
+    constructor(@InjectModel('User') private UserModel: Model<User>, @InjectModel('Todo') private TodoModel: Model<Todo>) { }
 
 
     getUsers = async () => {
@@ -67,7 +68,7 @@ export class UserService {
     getUserByUsrname = async (username: string) => {
 
         try {
-            const user = await this.UserModel.findOne({ username: username })
+            const user = await this.UserModel.findOne({ username: username }).exec()
             if (user)
                 return user
 
@@ -100,7 +101,7 @@ export class UserService {
             const user = await this.UserModel.findOne({ _id: senderId }).exec()
             if (user && (user.adminAccess || user._id === userId)) {
                 await this.UserModel.updateOne({ _id: userId }, { $set: { username: username, name: name, surname: surname, adminAccess: access } })
-                return { message: 'user successfully updated' }
+                return user
             }
 
             throw new HttpException('username already exists', HttpStatus.CONFLICT)
@@ -145,7 +146,8 @@ export class UserService {
             const user = await this.UserModel.findOne({ _id: senderId })
             if (user && (user.adminAccess || user._id === userId)) {
                 await this.UserModel.deleteOne({ _id: userId })
-                return { message: 'user successfully deleted' }
+                await this.TodoModel.deleteMany({ userid: user._id })
+                return user
             }
             throw new HttpException('user not found', HttpStatus.NOT_FOUND)
 

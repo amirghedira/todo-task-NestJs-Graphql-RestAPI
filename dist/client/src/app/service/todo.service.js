@@ -13,38 +13,116 @@ exports.TodoService = void 0;
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
 const auth_service_1 = require("./auth.service");
+const graphql_tag_1 = require("graphql-tag");
+const apollo_angular_1 = require("apollo-angular");
 let TodoService = class TodoService {
-    constructor(http, authService) {
+    constructor(http, authService, apollo) {
         this.http = http;
         this.authService = authService;
+        this.apollo = apollo;
     }
-    getTodos() {
-        return this.http.get('http://localhost:3000/todo');
+    getAssignedTodos() {
+        return this.apollo.query({
+            query: graphql_tag_1.default `
+                query{
+                    getAssignedTodos{
+                      _id
+                      description
+                      writerid{
+                          name
+                          surname
+                          username
+                      }
+                      date
+                      state
+                      title
+                      userid{
+                        _id
+                        name
+                          surname
+                          username
+                      }
+                  }
+                }
+             `,
+            fetchPolicy: 'network-only'
+        });
     }
     getUserTodo() {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.get('http://localhost:3000/todo/user', { headers: headers });
+        return this.apollo.query({
+            query: graphql_tag_1.default `
+                query{
+                    getUserTodos{
+                      _id
+                      description
+                      writerid{
+                          username
+                      }
+                      date
+                      state
+                      title
+                      userid{
+                          username
+                      }
+                  }
+                }
+             `,
+            fetchPolicy: 'network-only'
+        });
     }
     addTodo(userid, title, description) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.post('http://localhost:3000/todo', { userid, title, description }, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+               addTodo(addTodoInput:{title:"${title}",description:"${description}",userId:"${userid}"}){
+                _id
+                userid{
+                    username
+                    surname
+                    name
+                }
+                writerid{
+                    username
+                    name
+                    surname
+                }
+                title
+                description
+                
+            }
+           }`
+        });
     }
     deleteTodo(todoId) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.delete('http://localhost:3000/todo/' + todoId, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+               deleteTodo(todoId:"${todoId}"){  
+                   _id
+               }
+           }`
+        });
     }
     updateTodoState(todoId, state) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.patch('http://localhost:3000/todo/state/' + todoId, { state }, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+                updateState(todoId:"${todoId}",state:${state}){
+                    _id
+                }
+            }`
+        });
     }
     updateTodo(todoId, title, description) {
-        const headers = new http_1.HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.patch('http://localhost:3000/todo/' + todoId, { title, description }, { headers: headers });
+        return this.apollo.mutate({
+            mutation: graphql_tag_1.default `mutation{
+                updateTodo(updateTodoInput:{title:"${title}",description:"${description}",todoId:"${todoId}"}){
+                    _id
+                }
+            }`
+        });
     }
 };
 TodoService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.HttpClient, auth_service_1.AuthService])
+    __metadata("design:paramtypes", [http_1.HttpClient, auth_service_1.AuthService, apollo_angular_1.Apollo])
 ], TodoService);
 exports.TodoService = TodoService;
 //# sourceMappingURL=todo.service.js.map

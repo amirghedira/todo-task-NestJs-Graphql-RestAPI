@@ -8,51 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NavbarComponent = void 0;
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
-const user_service_1 = require("../service/user.service");
-const auth_service_1 = require("../service/auth.service");
+const user_service_1 = require("src/app/service/user.service");
+const auth_service_1 = require("src/app/service/auth.service");
 let NavbarComponent = class NavbarComponent {
     constructor(router, userService, authService) {
         this.router = router;
         this.userService = userService;
         this.authService = authService;
-        this.status = false;
-        this.loading = false;
-        this.userService.userConnected.subscribe((token) => {
-            if (token)
-                this.userService.getConnectUser().subscribe((user) => {
-                    if (user) {
-                        this.status = true;
-                        this.user = user;
-                    }
-                    else
-                        this.status = false;
-                });
-        });
+        this.loading = true;
     }
     ngOnInit() {
-        if (this.authService.getToken()) {
-            this.userService.getConnectUser().subscribe((user) => {
-                if (user) {
-                    this.status = true;
-                    this.user = user;
-                }
-                else
-                    this.status = false;
-                this.loading = true;
-            });
-        }
-        else {
-            this.loading = true;
-        }
+        this.userService.getConnectUser().subscribe((response) => {
+            this.user = response.data.getUserWithToken;
+            this.loading = false;
+        });
     }
     onDisconnect() {
         this.authService.eraseToken();
-        this.status = false;
-        this.router.navigate(['/user/login']);
+        this.router.navigate(['/auth/login']);
     }
 };
 NavbarComponent = __decorate([
@@ -61,7 +39,7 @@ NavbarComponent = __decorate([
         templateUrl: './navbar.component.html',
         styleUrls: ['./navbar.component.css'],
     }),
-    __metadata("design:paramtypes", [router_1.Router, user_service_1.UserService, auth_service_1.AuthService])
+    __metadata("design:paramtypes", [router_1.Router, typeof (_a = typeof user_service_1.UserService !== "undefined" && user_service_1.UserService) === "function" ? _a : Object, typeof (_b = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" ? _b : Object])
 ], NavbarComponent);
 exports.NavbarComponent = NavbarComponent;
 //# sourceMappingURL=navbar.component.js.map

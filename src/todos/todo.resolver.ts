@@ -12,49 +12,56 @@ export class TodoResolver {
 
     constructor(private todoService: TodoService) { }
 
+    @UseGuards(GqlAuthGuard)
     @Query(() => [TodoType])
-    async getTodos() {
-        return this.todoService.getTodos()
+    async getUserTodos(@CurrentUser() user: User) {
+        return await this.todoService.getUserTodos(user._id)
     }
 
     @UseGuards(GqlAuthGuard)
     @Query(() => [TodoType])
-    userTodos(@CurrentUser() user: User) {
-        console.log(user)
-        return this.todoService.getUserTodos(user._id)
+    async userTodos(@CurrentUser() user: User) {
+        return await this.todoService.getUserTodos(user._id)
+    }
+
+
+    @UseGuards(GqlAuthGuard)
+    @Query(() => [TodoType])
+    async getAssignedTodos(@CurrentUser() user: User) {
+        return await this.todoService.getAssignedTodos(user._id)
     }
 
     @Query(() => TodoType)
-    getTodo(@Args('todoId') todoId: string) {
-        return this.todoService.getTodo(todoId);
+    async getTodo(@Args('todoId') todoId: string) {
+        return await this.todoService.getTodo(todoId);
     }
 
     @UseGuards(GqlAuthGuard)
-    @Query(() => [TodoType])
-    addTodo(@Args('addTodoInput') addTodoInput: AddTodoInput, @CurrentUser() user: User) {
+    @Mutation(() => TodoType)
+    async addTodo(@Args('addTodoInput') addTodoInput: AddTodoInput, @CurrentUser() user: User) {
 
         const { userId, title, description } = addTodoInput;
-        return this.todoService.addTodo(user._id, userId, title, description);
+        return await this.todoService.addTodo(user._id, userId, title, description);
     }
 
     @UseGuards(GqlAuthGuard)
     @Mutation(() => TodoType)
-    deleteTodo(@Args('todoId') todoId: string, @CurrentUser() user: User) {
-        return this.todoService.deleteTodo(todoId, user._id)
+    async deleteTodo(@Args('todoId') todoId: string, @CurrentUser() user: User) {
+        return await this.todoService.deleteTodo(todoId, user._id)
     }
 
     @UseGuards(GqlAuthGuard)
     @Mutation(() => TodoType)
-    updateState(@Args('todoId') todoId: string, @Args('state') state: boolean) {
-        return this.todoService.editTodoState(todoId, state)
+    async updateState(@Args('todoId') todoId: string, @Args('state') state: boolean) {
+        return await this.todoService.editTodoState(todoId, state)
     }
 
     @UseGuards(GqlAuthGuard)
     @Mutation(() => TodoType)
-    updateTodo(@Args('updateTodoInput') updateTodoInput: UpdateTodoInput, @CurrentUser() user: User) {
+    async updateTodo(@Args('updateTodoInput') updateTodoInput: UpdateTodoInput, @CurrentUser() user: User) {
 
         const { todoId, title, description } = updateTodoInput
-        return this.todoService.editTodo(user._id, todoId, title, description)
+        return await this.todoService.editTodo(user._id, todoId, title, description)
     }
 
 

@@ -18,3 +18,11 @@ export class UserType {
     adminAccess: boolean;
 
 }
+
+@ObjectType()
+export class LoggedUserType {
+    @Field()
+    user: UserType
+    @Field()
+    token: string
+}

@@ -22,9 +22,9 @@ let TodoService = class TodoService {
     constructor(TodoModel, userService) {
         this.TodoModel = TodoModel;
         this.userService = userService;
-        this.getTodos = async () => {
+        this.getAssignedTodos = async (userId) => {
             try {
-                const todos = await this.TodoModel.find().populate([{ path: 'userid', writerid: 'writerid' }]).exec();
+                const todos = await this.TodoModel.find({ writerid: userId }).populate([{ path: 'userid' }, { path: 'writerid' }]).exec();
                 return todos;
             }
             catch (error) {
@@ -76,7 +76,7 @@ let TodoService = class TodoService {
                 if (todo)
                     if (user.adminAccess || user._id === todo.userid) {
                         await this.TodoModel.deleteOne({ _id: todoid });
-                        return { message: 'todo successfully deleted' };
+                        return todo;
                     }
                     else
                         throw new common_1.HttpException('access denied', common_1.HttpStatus.FORBIDDEN);
@@ -88,8 +88,8 @@ let TodoService = class TodoService {
         };
         this.editTodoState = async (todoId, todoState) => {
             try {
-                await this.TodoModel.updateOne({ _id: todoId }, { $set: { state: todoState } });
-                return { message: 'todo successfully updated' };
+                const updatedTodo = await this.TodoModel.findByIdAndUpdate(todoId, { $set: { state: todoState } });
+                return updatedTodo;
             }
             catch (error) {
                 return new common_1.HttpException(error.message, common_1.HttpStatus.INTERNAL_SERVER_ERROR);
@@ -103,8 +103,8 @@ let TodoService = class TodoService {
                     if (user.adminAccess || user._id === todo.userid) {
                         todo.title = title;
                         todo.description = description;
-                        await todo.save();
-                        return { message: 'todo successfully updated' };
+                        const updatedTodo = await todo.save();
+                        return updatedTodo;
                     }
                     else
                         throw new common_1.HttpException('access denied', common_1.HttpStatus.FORBIDDEN);

@@ -1421,9 +1421,9 @@
         "signature": "04f480292a8b8fa328e81a5f4509435df508bcbb589d455edcf9a72e8417bf71",
         "affectsGlobalScope": false
       },
-      "../client/node_modules/@angular/router/router.d.ts": {
-        "version": "8e3eb95e6675bf198463cbd1e5d4be2ac04bf4c64bf1ce58ee3b3e1a931cd397",
-        "signature": "8e3eb95e6675bf198463cbd1e5d4be2ac04bf4c64bf1ce58ee3b3e1a931cd397",
+      "../client/src/app/app.component.ts": {
+        "version": "b2e9a4f582a30fc70c9e405c63307f163054267ecb290ce8fd6df5ce25591026",
+        "signature": "0a5904557236b21927d769069a19dbedc10d9e114131ed053ca34a707b1d3c24",
         "affectsGlobalScope": false
       },
       "../client/node_modules/@angular/common/http/http.d.ts": {
@@ -1437,7 +1437,7 @@
         "affectsGlobalScope": false
       },
       "../client/src/app/service/auth.service.ts": {
-        "version": "c603c89d76b0e1e0977570f4c8f4367964d3d4081f0173be56192c7060a1aaa5",
+        "version": "08a0d51fdf0e46eb9f64323524b3d9f92b8c9ba0fdd5f037dfa59439eb13db3d",
         "signature": "db62b3578a7030157076078d25b0864755260891d559c4ba4b0c83e3c97f696e",
         "affectsGlobalScope": false
       },
@@ -1931,6 +1931,11 @@
         "signature": "b1d9d4c03b3c064dba84dee9e9db189cf3b20521df15e5fcef445a8963e8be83",
         "affectsGlobalScope": false
       },
+      "../client/node_modules/graphql-tag/index.d.ts": {
+        "version": "d0793584a2db6e3c115a04822309a80e6a04bbdc5b9daf269321c39f8dcd6327",
+        "signature": "d0793584a2db6e3c115a04822309a80e6a04bbdc5b9daf269321c39f8dcd6327",
+        "affectsGlobalScope": false
+      },
       "../client/node_modules/apollo-client/core/networkstatus.d.ts": {
         "version": "6cd325c1ec1241da4e215c622d4cf93828b5698e9e27d6b2fdd626974071c02d",
         "signature": "6cd325c1ec1241da4e215c622d4cf93828b5698e9e27d6b2fdd626974071c02d",
@@ -2201,59 +2206,14 @@
         "signature": "6edf6a34e3546a71a1d47cf3bd730c9a9661e1e4b73e973def833f4534c98518",
         "affectsGlobalScope": false
       },
-      "../client/node_modules/graphql-tag/index.d.ts": {
-        "version": "d0793584a2db6e3c115a04822309a80e6a04bbdc5b9daf269321c39f8dcd6327",
-        "signature": "d0793584a2db6e3c115a04822309a80e6a04bbdc5b9daf269321c39f8dcd6327",
+      "../client/src/app/service/todo.service.ts": {
+        "version": "486a16644c9efad2941674c7f933b7df3591cbf04a3f7e9766e57369025a0aec",
+        "signature": "d5e4a9e1e0f89629f64c992e01406d42ef6e4fb1e4adaf06c86ede18d0857454",
         "affectsGlobalScope": false
       },
       "../client/src/app/service/user.service.ts": {
-        "version": "0670c41c9f82dec679e29d399a073da0912c8e12fc62c3162719c0a56f1c883b",
-        "signature": "19a18271a78b9fd498e862de2761f53db946f96f7d21918e1aac6cbca1b1aea4",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/service/todo.service.ts": {
-        "version": "2d1d5b8490aafe00d7d67b451a2e898e9751930a19970f3994664018b5a7e87d",
-        "signature": "3b25cb6af4685af4f8b57176e7290a56ffbb705f396b5e1cf97fd945e5994d3d",
-        "affectsGlobalScope": false
-      },
-      "../client/node_modules/sweetalert2/sweetalert2.d.ts": {
-        "version": "1befb810e7130f28af42a8b560be125adf8d9d9fcbb8f7442ac62dd364f2d9cb",
-        "signature": "1befb810e7130f28af42a8b560be125adf8d9d9fcbb8f7442ac62dd364f2d9cb",
-        "affectsGlobalScope": true
-      },
-      "../client/node_modules/moment/ts3.1-typings/moment.d.ts": {
-        "version": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
-        "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/todo/todo.component.ts": {
-        "version": "494e9aae31575f5bc3cdb9919a26ad6d08b66d9fd913e839bfcc57b179dd54e0",
-        "signature": "8d4827ab0d0d8f2972da686899d0e2824013256bf6804a37a2a499fba99f568e",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/profile/profile.component.ts": {
-        "version": "6a16958f4734b36ee039cd3b14cf8996f38f5299cfecf51613647f43ecec7850",
-        "signature": "3c5a35738b3d2ff78783346c231df35e92a159d5290b33c557d925d1597c7b57",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/app.routing.ts": {
-        "version": "c0691b4a3e22d8e5304d1a516f49b4097ee577dc81035fa9c2642172989c1d40",
-        "signature": "0dfeafeffcaa71a818155d285fd7449994162c4826589f333294e915084b55b6",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/app-routing.module.ts": {
-        "version": "9cd2b34a6ecd36aa7726cffaaba09d87d6d4bc0bc72dd69a47793a57854f6f64",
-        "signature": "1c046c1658dea6723bda8a607fe2f863e50d75c385cd501813cbfbad3ed83441",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/app.component.ts": {
-        "version": "b2e9a4f582a30fc70c9e405c63307f163054267ecb290ce8fd6df5ce25591026",
-        "signature": "0a5904557236b21927d769069a19dbedc10d9e114131ed053ca34a707b1d3c24",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/navbar/navbar.component.ts": {
-        "version": "24d56e33fc40fb9ebcdc77e11d683c8e48d1d57fd5bb2dc222a6011ae8121294",
-        "signature": "f6bf1107fae0b90e1b03eb1fd43c776d4b2b2bfed949bb346b59c0e42661475b",
+        "version": "7549035af6be3eb0117226e994a4364e20fc68b70e905882cd44a13fac1cf524",
+        "signature": "32359d2e164beda233fbfce662c4fcd69988116935328c7cb9c5ac99c61555e4",
         "affectsGlobalScope": false
       },
       "../client/node_modules/apollo-angular-link-http-common/types.d.ts": {
@@ -2366,8 +2326,53 @@
         "signature": "95afb98c2bb5c9bc0dc33cbea5cc595ee6eb455c0df76f34e21260d7bd15b756",
         "affectsGlobalScope": false
       },
+      "../client/node_modules/apollo-link-context/lib/index.d.ts": {
+        "version": "dd6fb1acd8717c2ae5ef6dd1cb894baa505af3fa4b6b9cbbefc4ad32d63a8bd0",
+        "signature": "dd6fb1acd8717c2ae5ef6dd1cb894baa505af3fa4b6b9cbbefc4ad32d63a8bd0",
+        "affectsGlobalScope": false
+      },
+      "../client/node_modules/ts-invariant/lib/invariant.d.ts": {
+        "version": "0708e5b89a574f3655f9a36af531f86438e5b2155a5099a21bb03d324fd58519",
+        "signature": "0708e5b89a574f3655f9a36af531f86438e5b2155a5099a21bb03d324fd58519",
+        "affectsGlobalScope": false
+      },
+      "../client/node_modules/apollo-link-http-common/lib/index.d.ts": {
+        "version": "907fa2f7922f6056f7e7bcb0778139ae26c73b08b0f4b3a0dd5370ab0ef0acc7",
+        "signature": "907fa2f7922f6056f7e7bcb0778139ae26c73b08b0f4b3a0dd5370ab0ef0acc7",
+        "affectsGlobalScope": false
+      },
+      "../client/node_modules/apollo-link-error/lib/index.d.ts": {
+        "version": "a3ac8d4dd1c85c841d4e9125fa080ba523d066e3919ed9b7ef04e873264614d4",
+        "signature": "a3ac8d4dd1c85c841d4e9125fa080ba523d066e3919ed9b7ef04e873264614d4",
+        "affectsGlobalScope": false
+      },
+      "../client/node_modules/@angular/router/router.d.ts": {
+        "version": "8e3eb95e6675bf198463cbd1e5d4be2ac04bf4c64bf1ce58ee3b3e1a931cd397",
+        "signature": "8e3eb95e6675bf198463cbd1e5d4be2ac04bf4c64bf1ce58ee3b3e1a931cd397",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/auth/usernavbar/usernavbar.component.ts": {
+        "version": "bc3fbb2150a1b8043d51bb2533d76232c8b8309f3dbef75f4dcb6712ea223bc4",
+        "signature": "c7ebad202a63c4b96cb3a70f74652967b984bf141c484add287496787e062626",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/auth/usernavbar/usernavbar.module.ts": {
+        "version": "2bec7d20984b01eeaa9e15417b2d44d2453a899f3b0e0e3a88796286d27a72f9",
+        "signature": "20f5d4fb5cf88f0a1ea8746f4fd13db8e1df371f5120b9dc4567cbb1123f5c57",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/navbar/navbar.component.ts": {
+        "version": "ce8771a18aa04f7133e6b85bcceda1a168190748924517637ae7a9d822ee058d",
+        "signature": "a82505d4833aee7dfcf5869b47b4f2403017bac62a87a89b4c4534b24766baa0",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/navbar/navbar.module.ts": {
+        "version": "a37982eabef91347b68a04fefbe751d9f932c82cd1b0467fe9cbb108490c357c",
+        "signature": "850a0714bac37e765ccacbcb922dfccdcd60b69a42657ad82f12f70d6e1b5b12",
+        "affectsGlobalScope": false
+      },
       "../client/src/app/app.module.ts": {
-        "version": "f08a4b0c9ccdc7829560c168a7bfc505b08e4694eef2c776bdcb78ef4f30c3f9",
+        "version": "cbcea7b50cbdf03deba7985b7241da2358e50c993d9352619ecf7bc7b96f3ca5",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -2411,54 +2416,74 @@
         "signature": "47751db088722ba74ecb63c4704afa5b645cf4d6986e515f1f34a2baef0d4faa",
         "affectsGlobalScope": false
       },
-      "../client/src/app/admin/admin-routing.module.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "../client/src/app/admin/admin.component.ts": {
+        "version": "6bf55fa626de03af5f5d059042362e8d0669f0c827dfa5cb4d4f027251d1320a",
+        "signature": "bd126a2234167f53444e20de257e812d568e18a1864bd844e080b1e590218774",
         "affectsGlobalScope": false
       },
-      "../client/src/app/admin/admin.module.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
+      "../client/node_modules/sweetalert2/sweetalert2.d.ts": {
+        "version": "1befb810e7130f28af42a8b560be125adf8d9d9fcbb8f7442ac62dd364f2d9cb",
+        "signature": "1befb810e7130f28af42a8b560be125adf8d9d9fcbb8f7442ac62dd364f2d9cb",
+        "affectsGlobalScope": true
       },
       "../client/src/app/admin/manage-profiles/manage-profiles.component.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "version": "dcde5e55aa1fc5dfea4effc5565b05c5adbbb85bb6cec155086be93496887d8c",
+        "signature": "5c13be93bdd383ecb853f38a9507b5f03f3e1268af675e20a8fe4c2091e188b6",
+        "affectsGlobalScope": false
+      },
+      "../client/node_modules/moment/ts3.1-typings/moment.d.ts": {
+        "version": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
+        "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4",
         "affectsGlobalScope": false
       },
       "../client/src/app/admin/managetodo/managetodo.component.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "version": "caf17ce9f6b935e7f54f2de86bebfe6ce0e0943be2e21c88771284a876850ac2",
+        "signature": "5adc7fe6d949807407f1a474b3f01c105427fc22db62f1a38a7fc0a0275c5c70",
         "affectsGlobalScope": false
       },
-      "../client/src/app/user/user-routing.module.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "../client/src/app/admin/admin.module.ts": {
+        "version": "107615cd071383559289276db86f452cbb97657b827f0fe6a6064cb3ec0a4db3",
+        "signature": "4cb17d629e7bb0df751ae3e10d78a23d59ea51fc7c02044f9a003ba6f36fedf7",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/auth/auth.component.ts": {
+        "version": "959f74ef054796ad0cce69d0ae736e90fb4f92b79aadde5b3d2ba5577f174189",
+        "signature": "0d7379bd158ef4b58003f26b9e5213e19e454d7f90cf76a3f6a36983e2e16cce",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/auth/signup/signup.component.ts": {
+        "version": "fff0aa1e116a36d592c00bf453402ed1e012cec88df2c2eb6b905745b4f30fb3",
+        "signature": "6eb21f1ba59e886d16215aa13b9dca5ec1a92a17f4a1cc0af1049eb225c5a5ff",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/auth/login/login.component.ts": {
+        "version": "17f083f0bf967392ebb4b2d9843a2cc04a14065dc98d4ca694c384a717781751",
+        "signature": "42e99a5c0e5e5c8c0c24f43a5cbff92c3c181b43d2072b014ff769edf017f8e7",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/auth/auth.module.ts": {
+        "version": "1bbcdbb0183a3cb8ce44d8fc26d9b59d50298222a6a836e91d94b2f98c0aa3a2",
+        "signature": "a28b5c0c372fb375910b3fe3c3ce4331509bc18ccef7cc39c9ee9d8daf8225d1",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/user/user.component.ts": {
+        "version": "ea071e0e51c3b4de315d1ea1e0563acdd9d20e4dab1318c834619848ddeb3e04",
+        "signature": "ee63f7df6eb7320bc4b5de7978617b20f92839e9d42eae903ed9c183f385d83b",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/user/profile/profile.component.ts": {
+        "version": "d6133a917ef221d87afb6eeb1fd69d3c2ec68154f9ae431551957f6f2ba92a0c",
+        "signature": "457bb7bbbbd3b49d0b3c7abb576447f5b968f2007a4e303c2c4e05ea2739d028",
+        "affectsGlobalScope": false
+      },
+      "../client/src/app/user/todo-page/todo-page.component.ts": {
+        "version": "21c49115ffdeb72293434ecd49a34c1cdf36ac960ee90ac1f0c1bf684616fbba",
+        "signature": "180c79471026400e5e68aae819ac50aee937d30adcff63c3c78955fb5ad52918",
         "affectsGlobalScope": false
       },
       "../client/src/app/user/user.module.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/user/login/login.component.ts": {
-        "version": "2aa814d3dd33c61f0efc76c5733b9aee09df3b85ea9a1e0e6677c18220317666",
-        "signature": "0ea2feb79c470b1e4119b176fe2eab54424f98e250b16404d479472b8cb81d22",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/user/profile-page/profile-page.component.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/user/signup/signup.component.ts": {
-        "version": "6902ff4da59d927790b67853d634c92dc230df59e0d39572e0df95e8e334c5e4",
-        "signature": "e5f6e62cbd59f8cac0ed687cf9ef21ad7c27a4dbf26da6d97db1d909c4010641",
-        "affectsGlobalScope": false
-      },
-      "../client/src/app/user/todo-page/todos-page.component.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "version": "64480376a806613d443fde0d23e44e49fabbd480100480ba8579c4a0c31da52a",
+        "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329",
         "affectsGlobalScope": false
       },
       "../client/src/environments/environment.prod.ts": {
@@ -6165,14 +6190,19 @@
         "signature": "038d9320cf9ba2688a3720f9a09fbc92cf545f2ffa523fbf03383396542aef9f",
         "affectsGlobalScope": false
       },
+      "../src/todos/types/todo.ts": {
+        "version": "44ab7976b64e70c364f1cbc71711daa0f5b9964fa2c66656ccf3e2b190e0fd55",
+        "signature": "cc032e20a2c56d7fa9cf951d38ba7b0c17246847fb935fda32ac45df59671fff",
+        "affectsGlobalScope": false
+      },
       "../src/users/user.service.ts": {
-        "version": "78d4bfacc1f47aa3e263b570b53c3b1091d11989e20ac6f829380720f026fc93",
-        "signature": "5d3310f659054274245ac8f55b03341c77ff10e86f646ea8474f15021f801f10",
+        "version": "30752b932ec523be2e0c99f3cfc1953a3316abdd0cfd3139b1e9583db536e717",
+        "signature": "ee59a8051a19c60d4cf1d9f44cfa68707b639b9311a92965101e574853156984",
         "affectsGlobalScope": false
       },
       "../src/auth/auth.service.ts": {
-        "version": "fa87dda9bc24db825d4dfcfba7f9c93d52b9be8d15d2649f3e92055c6704c9f6",
-        "signature": "973e33d4f8cb594ffb60529ff6d2be2c227833bfd2c9402d3c506742120c7c64",
+        "version": "f29a6f27e81b2a1a87901c358aa123ef4206e45bc48889a49da1a4218636b810",
+        "signature": "f3a7cb3bf4bf325e5efd26e1370845777ccf04b140f655c083825554d132d3fd",
         "affectsGlobalScope": false
       },
       "../src/auth/currentuser.decorator.ts": {
@@ -6236,8 +6266,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/types/user.type.ts": {
-        "version": "cd359c78c5a4d5b6dad88ea42dbe30bff053a5d84f4661671e79d42367ffbead",
-        "signature": "0cf6bcd1cc61dc7d31c1f471e86ea009af627950b994d8b455c2fa7910e56b9b",
+        "version": "1c78ffd104643ff8477ddaf072ea94bc8a756ea730f08b52e9b7510cfe3185a8",
+        "signature": "8c689e4f687fe4daeb1126ff4bd2878d6a7d691d5021ae802563a34653ac474c",
         "affectsGlobalScope": false
       },
       "../src/users/types/user.input.ts": {
@@ -6246,13 +6276,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.resolver.ts": {
-        "version": "ca8885975025c8dcaf00eaccebd63b12d1e196cf4786239314730aa5da77be29",
-        "signature": "33bfb45986f342f6f70b565fe889c78d5182621bcc50a7fdd53a765a5ee47caf",
-        "affectsGlobalScope": false
-      },
-      "../src/users/user.module.ts": {
-        "version": "f7595fd384bb7e1bf49d03a92257dc1ffa5993db34087bc548ef53bd4ec27bcf",
-        "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329",
+        "version": "435403ce852b1f553faa380f6aee152b013881989dcbb7ab99c5a2a79ce064e4",
+        "signature": "455b2e5b7dddb56abcd527f29358773d8f4a50d9d9c0356578aea5eb30ea3514",
         "affectsGlobalScope": false
       },
       "../src/todos/todo.model.ts": {
@@ -6260,14 +6285,14 @@
         "signature": "0f9c6643b103a7a54394ba8518e823d0c86059e47b4b2905920d1bb20fa90f1f",
         "affectsGlobalScope": false
       },
-      "../src/todos/types/todo.ts": {
-        "version": "44ab7976b64e70c364f1cbc71711daa0f5b9964fa2c66656ccf3e2b190e0fd55",
-        "signature": "cc032e20a2c56d7fa9cf951d38ba7b0c17246847fb935fda32ac45df59671fff",
+      "../src/users/user.module.ts": {
+        "version": "9d2518f4ad138849024f518e8ce6e0a229219d0e47738e3eafb61143aef2a05e",
+        "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329",
         "affectsGlobalScope": false
       },
       "../src/todos/todo.service.ts": {
-        "version": "8ffa199c28767a21c887653e6ffaf8e82b1cd2791911ebb363e1de0aac575306",
-        "signature": "7332f6932d3e77caa467e80172f3caa0d7c24724f90f712ebb693fd5da6b834c",
+        "version": "fb84f4a71f16882c303ebec95b6247242889cc0d3c286f3ee982ec50e626e32e",
+        "signature": "29545567f380922e405069446592c0eac135c8371edfd298b474321270961f36",
         "affectsGlobalScope": false
       },
       "../src/todos/types/todo.type.ts": {
@@ -6281,8 +6306,8 @@
         "affectsGlobalScope": false
       },
       "../src/todos/todo.resolver.ts": {
-        "version": "b4a2d827bdffefee223cab6bcfe007efef36783625fde401015342be09c3f485",
-        "signature": "d7bdc38305e6df70a0d9bd5bcc3748089a06cf38654b2d6027513877321ccc37",
+        "version": "eef2b3f3fde1b13127a7cda9a04a1946d2987c685a19719c0402439469c8c0c2",
+        "signature": "f9b5eb459d8a7412ba8ab1454f2fb477e05c5f9aefe782d36e7c34d46caf38a5",
         "affectsGlobalScope": false
       },
       "../src/todos/todo.module.ts": {
@@ -8307,6 +8332,33 @@
       "../client/node_modules/apollo-client/util/observable.d.ts": [
         "../client/node_modules/@types/zen-observable/index.d.ts",
         "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/node_modules/apollo-link-context/lib/index.d.ts": [
+        "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/node_modules/apollo-link-error/lib/index.d.ts": [
+        "../client/node_modules/apollo-link-http-common/lib/index.d.ts",
+        "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../client/node_modules/graphql/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/node_modules/apollo-link-http-common/lib/index.d.ts": [
+        "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../client/node_modules/ts-invariant/lib/invariant.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10483,6 +10535,14 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../client/node_modules/ts-invariant/lib/invariant.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/ts3.7/index.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../client/node_modules/webdriver-js-extender/built/lib/index.d.ts": [
         "../client/node_modules/@types/selenium-webdriver/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -10514,14 +10574,31 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../client/src/app/admin/admin-routing.module.ts": [
+      "../client/src/app/admin/admin.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/src/app/service/user.service.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/process.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
       "../client/src/app/admin/admin.module.ts": [
+        "../client/node_modules/@angular/common/common.d.ts",
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/forms/forms.d.ts",
+        "../client/node_modules/@angular/platform-browser/platform-browser.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/src/app/admin/admin.component.ts",
+        "../client/src/app/admin/manage-profiles/manage-profiles.component.ts",
+        "../client/src/app/admin/managetodo/managetodo.component.ts",
+        "../client/src/app/navbar/navbar.module.ts",
+        "../client/src/app/service/auth.service.ts",
+        "../client/src/app/service/todo.service.ts",
+        "../client/src/app/service/user.service.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10529,6 +10606,9 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../client/src/app/admin/manage-profiles/manage-profiles.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10536,16 +10616,10 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../client/src/app/admin/managetodo/managetodo.component.ts": [
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../client/src/app/app-routing.module.ts": [
         "../client/node_modules/@angular/core/core.d.ts",
         "../client/node_modules/@angular/router/router.d.ts",
-        "../client/src/app/app.routing.ts",
+        "../client/node_modules/moment/ts3.1-typings/moment.d.ts",
+        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10565,27 +10639,82 @@
         "../client/node_modules/@angular/core/core.d.ts",
         "../client/node_modules/@angular/forms/forms.d.ts",
         "../client/node_modules/@angular/platform-browser/platform-browser.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
         "../client/node_modules/apollo-angular-link-http/ngapollolinkhttp.d.ts",
         "../client/node_modules/apollo-angular/ngapollo.d.ts",
         "../client/node_modules/apollo-cache-inmemory/lib/index.d.ts",
-        "../client/src/app/app-routing.module.ts",
+        "../client/node_modules/apollo-link-context/lib/index.d.ts",
+        "../client/node_modules/apollo-link-error/lib/index.d.ts",
+        "../client/node_modules/apollo-link/lib/index.d.ts",
         "../client/src/app/app.component.ts",
-        "../client/src/app/navbar/navbar.component.ts",
-        "../client/src/app/profile/profile.component.ts",
+        "../client/src/app/auth/usernavbar/usernavbar.module.ts",
+        "../client/src/app/navbar/navbar.module.ts",
         "../client/src/app/service/auth.service.ts",
         "../client/src/app/service/todo.service.ts",
         "../client/src/app/service/user.service.ts",
-        "../client/src/app/todo/todo.component.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../client/src/app/app.routing.ts": [
+      "../client/src/app/auth/auth.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/src/app/auth/auth.module.ts": [
+        "../client/node_modules/@angular/common/common.d.ts",
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/forms/forms.d.ts",
         "../client/node_modules/@angular/router/router.d.ts",
-        "../client/src/app/profile/profile.component.ts",
-        "../client/src/app/todo/todo.component.ts",
+        "../client/src/app/auth/auth.component.ts",
+        "../client/src/app/auth/login/login.component.ts",
+        "../client/src/app/auth/signup/signup.component.ts",
+        "../client/src/app/auth/usernavbar/usernavbar.module.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/src/app/auth/login/login.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/src/app/auth/signup/signup.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/src/app/auth/usernavbar/usernavbar.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/src/app/auth/usernavbar/usernavbar.module.ts": [
+        "../client/node_modules/@angular/common/common.d.ts",
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/forms/forms.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/src/app/auth/usernavbar/usernavbar.component.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10595,19 +10724,18 @@
       "../client/src/app/navbar/navbar.component.ts": [
         "../client/node_modules/@angular/core/core.d.ts",
         "../client/node_modules/@angular/router/router.d.ts",
-        "../client/src/app/service/auth.service.ts",
-        "../client/src/app/service/user.service.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../client/src/app/profile/profile.component.ts": [
+      "../client/src/app/navbar/navbar.module.ts": [
+        "../client/node_modules/@angular/common/common.d.ts",
         "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/forms/forms.d.ts",
         "../client/node_modules/@angular/router/router.d.ts",
-        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
-        "../client/src/app/service/user.service.ts",
+        "../client/src/app/navbar/navbar.component.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10625,6 +10753,8 @@
       "../client/src/app/service/todo.service.ts": [
         "../client/node_modules/@angular/common/http.d.ts",
         "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/apollo-angular/ngapollo.d.ts",
+        "../client/node_modules/graphql-tag/index.d.ts",
         "../client/src/app/service/auth.service.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -10645,54 +10775,29 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../client/src/app/todo/todo.component.ts": [
+      "../client/src/app/user/profile/profile.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/src/app/user/todo-page/todo-page.component.ts": [
         "../client/node_modules/@angular/core/core.d.ts",
         "../client/node_modules/@angular/router/router.d.ts",
         "../client/node_modules/moment/ts3.1-typings/moment.d.ts",
         "../client/node_modules/sweetalert2/sweetalert2.d.ts",
-        "../client/src/app/service/auth.service.ts",
-        "../client/src/app/service/todo.service.ts",
-        "../client/src/app/service/user.service.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../client/src/app/user/login/login.component.ts": [
+      "../client/src/app/user/user.component.ts": [
         "../client/node_modules/@angular/core/core.d.ts",
-        "../client/node_modules/@angular/router/router.d.ts",
-        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../client/src/app/user/profile-page/profile-page.component.ts": [
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../client/src/app/user/signup/signup.component.ts": [
-        "../client/node_modules/@angular/core/core.d.ts",
-        "../client/node_modules/sweetalert2/sweetalert2.d.ts",
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../client/src/app/user/todo-page/todos-page.component.ts": [
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../client/src/app/user/user-routing.module.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -10700,6 +10805,18 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../client/src/app/user/user.module.ts": [
+        "../client/node_modules/@angular/common/common.d.ts",
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/forms/forms.d.ts",
+        "../client/node_modules/@angular/platform-browser/platform-browser.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/src/app/navbar/navbar.module.ts",
+        "../client/src/app/service/auth.service.ts",
+        "../client/src/app/service/todo.service.ts",
+        "../client/src/app/service/user.service.ts",
+        "../client/src/app/user/profile/profile.component.ts",
+        "../client/src/app/user/todo-page/todo-page.component.ts",
+        "../client/src/app/user/user.component.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -19354,6 +19471,7 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../src/auth/auth.service.ts",
+        "../src/todos/todo.model.ts",
         "../src/users/user.model.ts",
         "../src/users/user.resolver.ts",
         "../src/users/user.service.ts"
@@ -19384,6 +19502,7 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../src/todos/types/todo.ts",
         "../src/users/types/user.ts"
       ]
     },
@@ -21076,6 +21195,33 @@
       "../client/node_modules/apollo-client/util/observable.d.ts": [
         "../client/node_modules/@types/zen-observable/index.d.ts",
         "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/node_modules/apollo-link-context/lib/index.d.ts": [
+        "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/node_modules/apollo-link-error/lib/index.d.ts": [
+        "../client/node_modules/apollo-link-http-common/lib/index.d.ts",
+        "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../client/node_modules/graphql/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../client/node_modules/apollo-link-http-common/lib/index.d.ts": [
+        "../client/node_modules/apollo-link/lib/index.d.ts",
+        "../client/node_modules/ts-invariant/lib/invariant.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -23252,6 +23398,14 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../client/node_modules/ts-invariant/lib/invariant.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/ts3.7/index.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../client/node_modules/webdriver-js-extender/built/lib/index.d.ts": [
         "../client/node_modules/@types/selenium-webdriver/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -23283,22 +23437,38 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../client/src/app/app.routing.ts": [
+      "../client/src/app/admin/admin.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts",
+        "../client/src/app/service/user.service.ts"
+      ],
+      "../client/src/app/admin/manage-profiles/manage-profiles.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
         "../client/node_modules/@angular/router/router.d.ts"
+      ],
+      "../client/src/app/admin/managetodo/managetodo.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts"
+      ],
+      "../client/src/app/auth/login/login.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts"
+      ],
+      "../client/src/app/auth/signup/signup.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts"
+      ],
+      "../client/src/app/auth/usernavbar/usernavbar.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts"
       ],
       "../client/src/app/navbar/navbar.component.ts": [
         "../client/node_modules/@angular/core/core.d.ts",
-        "../client/node_modules/@angular/router/router.d.ts",
-        "../client/src/app/service/auth.service.ts",
-        "../client/src/app/service/user.service.ts"
-      ],
-      "../client/src/app/profile/profile.component.ts": [
-        "../client/node_modules/@angular/core/core.d.ts",
-        "../client/node_modules/@angular/router/router.d.ts",
-        "../client/src/app/service/user.service.ts"
+        "../client/node_modules/@angular/router/router.d.ts"
       ],
       "../client/src/app/service/todo.service.ts": [
         "../client/node_modules/@angular/common/http.d.ts",
+        "../client/node_modules/apollo-angular/ngapollo.d.ts",
+        "../client/node_modules/apollo-client/index.d.ts",
+        "../client/node_modules/apollo-link/lib/index.d.ts",
         "../client/node_modules/rxjs/index.d.ts",
         "../client/src/app/service/auth.service.ts"
       ],
@@ -23306,22 +23476,17 @@
         "../client/node_modules/@angular/common/http.d.ts",
         "../client/node_modules/apollo-angular/ngapollo.d.ts",
         "../client/node_modules/apollo-client/index.d.ts",
+        "../client/node_modules/apollo-link/lib/index.d.ts",
         "../client/node_modules/rxjs/index.d.ts",
         "../client/src/app/service/auth.service.ts"
       ],
-      "../client/src/app/todo/todo.component.ts": [
-        "../client/node_modules/@angular/core/core.d.ts",
-        "../client/node_modules/@angular/router/router.d.ts",
-        "../client/src/app/service/auth.service.ts",
-        "../client/src/app/service/todo.service.ts",
-        "../client/src/app/service/user.service.ts"
-      ],
-      "../client/src/app/user/login/login.component.ts": [
+      "../client/src/app/user/profile/profile.component.ts": [
         "../client/node_modules/@angular/core/core.d.ts",
         "../client/node_modules/@angular/router/router.d.ts"
       ],
-      "../client/src/app/user/signup/signup.component.ts": [
-        "../client/node_modules/@angular/core/core.d.ts"
+      "../client/src/app/user/todo-page/todo-page.component.ts": [
+        "../client/node_modules/@angular/core/core.d.ts",
+        "../client/node_modules/@angular/router/router.d.ts"
       ],
       "../node_modules/@apollo/federation/dist/composition/compose.d.ts": [
         "../node_modules/@apollo/federation/dist/composition/types.d.ts",
@@ -31740,13 +31905,11 @@
         "../node_modules/@nestjs/passport/index.d.ts"
       ],
       "../src/todos/todo.resolver.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
         "../src/todos/todo.service.ts",
         "../src/todos/types/todo.input.ts",
         "../src/users/types/user.ts"
       ],
       "../src/todos/todo.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
         "../src/todos/types/todo.ts",
         "../src/users/user.service.ts"
       ],
@@ -31754,14 +31917,13 @@
         "../src/users/types/user.type.ts"
       ],
       "../src/users/user.resolver.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
         "../src/auth/auth.service.ts",
         "../src/users/types/user.input.ts",
         "../src/users/types/user.ts",
         "../src/users/user.service.ts"
       ],
       "../src/users/user.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/todos/types/todo.ts",
         "../src/users/types/user.ts"
       ]
     },
@@ -31929,6 +32091,9 @@
       "../client/node_modules/apollo-client/errors/apolloerror.d.ts",
       "../client/node_modules/apollo-client/index.d.ts",
       "../client/node_modules/apollo-client/util/observable.d.ts",
+      "../client/node_modules/apollo-link-context/lib/index.d.ts",
+      "../client/node_modules/apollo-link-error/lib/index.d.ts",
+      "../client/node_modules/apollo-link-http-common/lib/index.d.ts",
       "../client/node_modules/apollo-link/lib/index.d.ts",
       "../client/node_modules/apollo-link/lib/link.d.ts",
       "../client/node_modules/apollo-link/lib/linkutils.d.ts",
@@ -32147,109 +32312,171 @@
       "../client/node_modules/rxjs/internal/util/timeouterror.d.ts",
       "../client/node_modules/rxjs/internal/util/unsubscriptionerror.d.ts",
       "../client/node_modules/sweetalert2/sweetalert2.d.ts",
+      "../client/node_modules/ts-invariant/lib/invariant.d.ts",
       "../client/node_modules/webdriver-js-extender/built/lib/index.d.ts",
       "../client/node_modules/zen-observable-ts/lib/index.d.ts",
       "../client/node_modules/zen-observable-ts/lib/types.d.ts",
       "../client/node_modules/zen-observable-ts/lib/zenobservable.d.ts",
-      "../client/src/app/admin/admin-routing.module.ts",
+      "../client/src/app/admin/admin.component.ts",
       "../client/src/app/admin/admin.module.ts",
-      "../client/src/app/admin/manage-profiles/manage-profiles.component.ts",
-      "../client/src/app/admin/managetodo/managetodo.component.ts",
-      "../client/src/app/app-routing.module.ts",
+      [
+        "../client/src/app/admin/manage-profiles/manage-profiles.component.ts",
+        [
+          {
+            "file": "../client/src/app/admin/manage-profiles/manage-profiles.component.ts",
+            "start": 171,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      [
+        "../client/src/app/admin/managetodo/managetodo.component.ts",
+        [
+          {
+            "file": "../client/src/app/admin/managetodo/managetodo.component.ts",
+            "start": 189,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../client/src/app/admin/managetodo/managetodo.component.ts",
+            "start": 249,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/todo.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../client/src/app/admin/managetodo/managetodo.component.ts",
+            "start": 309,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/auth.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
       "../client/src/app/app.component.ts",
+      "../client/src/app/app.module.ts",
+      "../client/src/app/auth/auth.component.ts",
+      "../client/src/app/auth/auth.module.ts",
       [
-        "../client/src/app/app.module.ts",
+        "../client/src/app/auth/login/login.component.ts",
         [
           {
-            "file": "../client/src/app/app.module.ts",
-            "start": 284,
-            "length": 27,
-            "messageText": "Cannot find module './signup/signup.component' or its corresponding type declarations.",
+            "file": "../client/src/app/auth/login/login.component.ts",
+            "start": 152,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
             "category": 1,
             "code": 2307
           },
           {
-            "file": "../client/src/app/app.module.ts",
-            "start": 344,
-            "length": 25,
-            "messageText": "Cannot find module './login/login.component' or its corresponding type declarations.",
+            "file": "../client/src/app/auth/login/login.component.ts",
+            "start": 212,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/todo.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../client/src/app/auth/login/login.component.ts",
+            "start": 272,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/auth.service' or its corresponding type declarations.",
             "category": 1,
             "code": 2307
           }
         ]
       ],
       [
-        "../client/src/app/app.routing.ts",
+        "../client/src/app/auth/signup/signup.component.ts",
         [
           {
-            "file": "../client/src/app/app.routing.ts",
-            "start": 73,
-            "length": 25,
-            "messageText": "Cannot find module './login/login.component' or its corresponding type declarations.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "../client/src/app/app.routing.ts",
-            "start": 132,
-            "length": 27,
-            "messageText": "Cannot find module './signup/signup.component' or its corresponding type declarations.",
+            "file": "../client/src/app/auth/signup/signup.component.ts",
+            "start": 110,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
             "category": 1,
             "code": 2307
           }
         ]
       ],
-      "../client/src/app/navbar/navbar.component.ts",
-      "../client/src/app/profile/profile.component.ts",
+      "../client/src/app/auth/usernavbar/usernavbar.component.ts",
+      "../client/src/app/auth/usernavbar/usernavbar.module.ts",
+      [
+        "../client/src/app/navbar/navbar.component.ts",
+        [
+          {
+            "file": "../client/src/app/navbar/navbar.component.ts",
+            "start": 121,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../client/src/app/navbar/navbar.component.ts",
+            "start": 181,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/auth.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      "../client/src/app/navbar/navbar.module.ts",
       "../client/src/app/service/auth.service.ts",
       "../client/src/app/service/todo.service.ts",
       "../client/src/app/service/user.service.ts",
-      "../client/src/app/todo/todo.component.ts",
       [
-        "../client/src/app/user/login/login.component.ts",
+        "../client/src/app/user/profile/profile.component.ts",
         [
           {
-            "file": "../client/src/app/user/login/login.component.ts",
-            "start": 152,
-            "length": 25,
-            "messageText": "Cannot find module '../service/todo.service' or its corresponding type declarations.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "../client/src/app/user/login/login.component.ts",
-            "start": 207,
-            "length": 25,
-            "messageText": "Cannot find module '../service/user.service' or its corresponding type declarations.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "../client/src/app/user/login/login.component.ts",
-            "start": 262,
-            "length": 25,
-            "messageText": "Cannot find module '../service/auth.service' or its corresponding type declarations.",
+            "file": "../client/src/app/user/profile/profile.component.ts",
+            "start": 171,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
             "category": 1,
             "code": 2307
           }
         ]
       ],
-      "../client/src/app/user/profile-page/profile-page.component.ts",
       [
-        "../client/src/app/user/signup/signup.component.ts",
+        "../client/src/app/user/todo-page/todo-page.component.ts",
         [
           {
-            "file": "../client/src/app/user/signup/signup.component.ts",
-            "start": 110,
-            "length": 25,
-            "messageText": "Cannot find module '../service/user.service' or its corresponding type declarations.",
+            "file": "../client/src/app/user/todo-page/todo-page.component.ts",
+            "start": 186,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/user.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../client/src/app/user/todo-page/todo-page.component.ts",
+            "start": 246,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/todo.service' or its corresponding type declarations.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../client/src/app/user/todo-page/todo-page.component.ts",
+            "start": 306,
+            "length": 30,
+            "messageText": "Cannot find module 'src/app/service/auth.service' or its corresponding type declarations.",
             "category": 1,
             "code": 2307
           }
         ]
       ],
-      "../client/src/app/user/todo-page/todos-page.component.ts",
-      "../client/src/app/user/user-routing.module.ts",
+      "../client/src/app/user/user.component.ts",
       "../client/src/app/user/user.module.ts",
       "../client/src/environments/environment.prod.ts",
       "../client/src/environments/environment.ts",

@@ -16,63 +16,122 @@ export class UserService {
     constructor(private http: HttpClient, private authService: AuthService, private apollo: Apollo) {
     }
 
-    // userLogin(username: string, password: string) {
-
-    //     const loginQuery = gql`
-    //     query{
-    //         login(loginInput:{
-    //           username:"${username}"
-    //           password:"${password}"
-    //         })
-    //       }
-    //       `;
-
-    //     return this.apollo.watchQuery<any>({
-    //         query: loginQuery
-    //     }).valueChanges
-
-    // }
     userLogin(username: string, password: string) {
-
-        return this.http.post('http://localhost:3000/user/login', { username, password })
+        return this.apollo.query({
+            query: gql`
+            query{
+                login(loginInput:{
+                  username:"${username}",
+                  password:"${password}"
+                }){
+                    user{
+                        username
+                        _id
+                    }
+                    token   
+                }
+              }
+              `,
+            fetchPolicy: 'network-only'
+        })
 
     }
     getUsers() {
 
-        return this.http.get('http://localhost:3000/user')
+        return this.apollo.query({
+            query: gql`
+            query{
+                getUsers{
+                    _id
+                    username
+                    name
+                    surname
+                    adminAccess
+                }
+            }
+              `,
+            fetchPolicy: 'network-only'
+        })
     }
     getUser(userId: string) {
 
-        return this.http.get('http://localhost:3000/user/' + userId)
+        return this.apollo.query({
+            query: gql`query{
+                getUser(userid:"${userId}"){
+                    username
+                    name
+                    _id
+                    surname
+                    adminAccess
+                }
+            }`,
+            fetchPolicy: 'network-only'
+
+        })
     }
     getConnectUser() {
 
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.get('http://localhost:3000/user/token', { headers: headers })
+        return this.apollo.query({
+            query: gql`
+            query{
+                getUserWithToken{
+                    username
+                    _id
+                    name
+                    surname
+                    adminAccess
+                }
+              }
+              `,
+            fetchPolicy: 'no-cache'
+
+        })
     }
     login(token: string) {
-        console.log('hh')
         return this.userCon.next(token);
     }
     addUser(username: string, password: string, name: string, surname: string) {
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-
-        return this.http.post('http://localhost:3000/user', { username, password, name, surname }, { headers: headers })
+        return this.apollo.mutate({
+            mutation: gql`
+                mutation{
+                    addUser(UserInput:{username:"${username}", name:"${name}",surname:"${surname}",password:"${password}"}){_id}
+                }
+              `
+        })
     }
     deleteUser(userId: string) {
 
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.delete('http://localhost:3000/user/' + userId, { headers: headers })
+        return this.apollo.mutate({
+            mutation: gql`mutation{
+                deleteUser(userid:"${userId}"){
+                    username
+                    name
+                    _id
+                    surname
+                    adminAccess
+                }
+            }`
+        })
     }
     updateUser(userId: string, username: string, name: string, surname: string, access: boolean) {
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-
-        return this.http.patch('http://localhost:3000/user/' + userId, { username, surname, name, access }, { headers: headers })
+        return this.apollo.mutate({
+            mutation: gql`mutation{
+                updateUser(UpdateUserInput:{userId:"${userId}",username:"${username}",name:"${name}",surname:"${surname}",access:"${access}"}){
+                    _id
+                    username
+                }
+            }`
+        })
     }
     updateUserPassword(userId: string, oldPassword: string, newPassword: string) {
 
-        const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.authService.getToken());
-        return this.http.patch('http://localhost:3000/user/password/' + userId, { newPassword, oldPassword }, { headers: headers })
-
+        return this.apollo.mutate({
+            mutation: gql`mutation{
+                 updateUserPassword(UpdatePasswordInput:{userId:"${userId}" ,oldPassword:"${oldPassword}",newPassword:"${newPassword}"}){
+                    _id
+                    username
+                }
+            }`
+        })
     }
 }

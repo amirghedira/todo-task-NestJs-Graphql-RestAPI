@@ -27,23 +27,20 @@ export class ManageTodoComponent implements OnInit {
     connectedUser;
     ngOnInit() {
 
-        if (this.authService.getToken()) {
-            this.userService.getConnectUser().subscribe((user: any) => {
-                this.connectedUser = user
+        this.userService.getConnectUser().subscribe((response: any) => {
+            this.connectedUser = response.data.getUserWithToken
 
-                this.userService.getUsers().subscribe((users: any) => {
-                    this.users = users.filter(usr => { return usr._id != user._id })
-                })
-                this.todoService.getTodos().subscribe((todos: any) => {
-                    todos.reverse()
-                    this.todos = todos;
-
-                })
+            this.userService.getUsers().subscribe((usersResponse: any) => {
+                this.users = usersResponse.data.getUsers.filter(usr => { return usr._id != response.data.getUserWithToken._id })
             })
+            this.todoService.getAssignedTodos().subscribe((response: any) => {
+                response.data.getAssignedTodos.reverse()
+                this.todos = response.data.getAssignedTodos;
 
-        }
-        else
-            this.router.navigate(['/user/login'])
+            })
+        })
+
+
 
     }
     onPost() {
@@ -51,7 +48,7 @@ export class ManageTodoComponent implements OnInit {
         const assignedUserId = this.users[userIndex]._id
         if (this.title != '' && this.description != '')
             this.todoService.addTodo(assignedUserId, this.title, this.description).subscribe((response: any) => {
-                this.todos.unshift(response)
+                this.todos.unshift(response.data.addTodo)
                 this.title = ''
                 this.description = ''
             })
@@ -76,9 +73,12 @@ export class ManageTodoComponent implements OnInit {
     }
     oneditTodoState(todoId: string, todoState: boolean) {
         this.todoService.updateTodoState(todoId, todoState).subscribe(response => {
+            console.log(response)
             const todoIndex = this.todos.findIndex(todo => todo._id === todoId)
             this.todos[todoIndex].state = todoState;
 
+        }, err => {
+            console.log(err)
         })
     }
     onDeleteTodo(todoid: string) {
@@ -87,8 +87,8 @@ export class ManageTodoComponent implements OnInit {
         })
     }
     onDeleteUser(userid: string) {
+        console.log(userid)
         this.userService.deleteUser(userid).subscribe(response => {
-
         }, error => {
             Swal.fire({
                 icon: 'error',

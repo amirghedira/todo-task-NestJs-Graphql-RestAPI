@@ -13,7 +13,7 @@ export class AuthService {
         const user = await this.userService.getUserByUsrname(loginInput.username);
         const result = await bcrypt.compare(loginInput.password, user.password)
         if (user && result) {
-            return jwt.sign({ username: user.username, _id: user._id }, process.env.JWT_SECRET_KEY)
+            return { user: user, token: jwt.sign({ username: user.username, _id: user._id }, process.env.JWT_SECRET_KEY) }
         }
         return null
 

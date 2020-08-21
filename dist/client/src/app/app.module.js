@@ -10,43 +10,72 @@ exports.AppModule = void 0;
 const platform_browser_1 = require("@angular/platform-browser");
 const core_1 = require("@angular/core");
 const forms_1 = require("@angular/forms");
-const app_routing_module_1 = require("./app-routing.module");
 const app_component_1 = require("./app.component");
-const signup_component_1 = require("./signup/signup.component");
-const login_component_1 = require("./login/login.component");
-const navbar_component_1 = require("./navbar/navbar.component");
-const todo_component_1 = require("./todo/todo.component");
 const http_1 = require("@angular/common/http");
 const todo_service_1 = require("./service/todo.service");
 const user_service_1 = require("./service/user.service");
 const auth_service_1 = require("./service/auth.service");
-const profile_component_1 = require("./profile/profile.component");
 const apollo_angular_1 = require("apollo-angular");
+const apollo_link_1 = require("apollo-link");
 const apollo_angular_link_http_1 = require("apollo-angular-link-http");
 const apollo_cache_inmemory_1 = require("apollo-cache-inmemory");
+const apollo_link_context_1 = require("apollo-link-context");
+const apollo_link_error_1 = require("apollo-link-error");
+const router_1 = require("@angular/router");
+const token = 'something';
+const auth = apollo_link_context_1.setContext((operation, context) => ({
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+}));
+const errorLink = apollo_link_error_1.onError(({ graphQLErrors, networkError }) => {
+    if (graphQLErrors) {
+        console.log('graphQLErrors', graphQLErrors);
+    }
+    if (networkError) {
+        console.log('networkError', networkError);
+    }
+});
+const AppRoutes = [
+    {
+        path: 'auth',
+        loadChildren: './auth/auth.module#AuthModule',
+    },
+    {
+        path: 'user',
+        loadChildren: './user/user.module#UserModule',
+    },
+    {
+        path: 'admin',
+        loadChildren: './admin/admin.module#AdminModule',
+    },
+    {
+        path: '',
+        redirectTo: 'auth/login',
+        pathMatch: 'full',
+    },
+];
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     core_1.NgModule({
         declarations: [
-            app_component_1.AppComponent, signup_component_1.SignUpComponent, login_component_1.LoginComponent, navbar_component_1.NavbarComponent, todo_component_1.TodoComponent, profile_component_1.ProfileComponent
+            app_component_1.AppComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
-            app_routing_module_1.AppRoutingModule,
             forms_1.FormsModule,
             http_1.HttpClientModule,
+            router_1.RouterModule.forRoot(AppRoutes),
             apollo_angular_1.ApolloModule,
-            apollo_angular_link_http_1.HttpLinkModule
+            apollo_angular_link_http_1.HttpLinkModule,
         ],
         providers: [todo_service_1.TodoService, user_service_1.UserService, auth_service_1.AuthService, {
                 provide: apollo_angular_1.APOLLO_OPTIONS,
                 useFactory: (httpLink) => {
                     return {
                         cache: new apollo_cache_inmemory_1.InMemoryCache(),
-                        link: httpLink.create({
-                            uri: "http://localhost:3000/graphql"
-                        })
+                        link: apollo_link_1.ApolloLink.from([errorLink, auth, httpLink.create({ uri: "http://localhost:3000/graphql" })])
                     };
                 },
                 deps: [apollo_angular_link_http_1.HttpLink]

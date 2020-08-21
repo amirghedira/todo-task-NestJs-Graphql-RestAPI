@@ -14,9 +14,8 @@ export class AdminComponent implements OnInit {
 
 
     ngOnInit() {
-        this.userService.getConnectUser().subscribe((connecteduser: any) => {
-            console.log(connecteduser)
-            if (!connecteduser || !connecteduser.adminAccess)
+        this.userService.getConnectUser().subscribe((response: any) => {
+            if (response.data.getUserWithToken == null || !response.data.getUserWithToken.adminAccess)
                 this.router.navigate(['/user/todos'])
         })
     }
