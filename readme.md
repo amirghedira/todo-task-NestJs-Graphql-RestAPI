@@ -192,12 +192,12 @@ input LoginInput {
 ### Queries
 ```typescript
   login(loginInput: LoginInput!): LoggedUserType!
-  getUsers: [UserType!]!
-  getUserWithToken: UserType!
+  getUsers(): [UserType!]!
+  getUserWithToken(): UserType!
   getUser(userid: String!): UserType!
-  getUserTodos: [TodoType!]!
-  userTodos: [TodoType!]!
-  getAssignedTodos: [TodoType!]!
+  getUserTodos(): [TodoType!]!
+  userTodos(): [TodoType!]!
+  getAssignedTodos(): [TodoType!]!
   getTodo(todoId: String!): TodoType!
 ```
 ### Mutations
