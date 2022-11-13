@@ -2,7 +2,7 @@
  This project is all about managing tasks and assigning them to users. Only admins can assign tasks to users. the first account created in the database will automaticaly have an admin access and any other account will have a normal user access.Admins can edit any user and can provide admin access to them. Once a task is assigned to a user , it will be displayed to him. He can close the task when ever he finish it. 
 # Launch the project
 ## backend
-To launch the project, you have to first add a `.env` folder in the root directory that will hold the environment variables of the backend. You can find a `.env.example` folder as reference for the environment variables used.
+To launch the project, you have to first add a `.env` file in the root directory that will hold the environment variables of the backend. You can find a `.env.example` folder as reference for the environment variables used.
 
 After adding a `.env` file you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
 
