@@ -1,9 +1,43 @@
 # Overview 
  This project is all about managing tasks and assigning them to users. Only admins can assign tasks to users. the first account created in the database will automaticaly have an admin access and any other account will have a normal user access.Admins can edit any user and can provide admin access to them. Once a task is assigned to a user , it will be displayed to him. He can close the task when ever he finish it. 
+# Launch the project
+## backend
+To launch the project, you have to first add a `.env` folder in the root directory that will hold the environment variables of the backend. You can find a `.env.example` folder as reference for the environment variables used.
+
+After adding a `.env` file you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
+
+To install the backend Node packages simply run:
+``` bash
+npm install
+```
+To run the backend server run:
+``` bash
+npm start
+```
+To run the backend server in development mode run:
+``` bash
+npm start:dev
+```
+Note that the server will listen on port `5000`
+## frontend
+Navigate to the client folder by running:
+``` bash
+cd client
+```
+Then to install the frontend packages run:
+``` bash
+npm install
+```
+Now you are ready to start the frontend by running:
+``` bash
+npm start
+```
+Note that the frontend will be accessible on port `4200`
  # Features / Technologies 
  The core feature of this application , is to manipulate data, and treat each type of user differently. An admin can edit his own profile and edit any other user profile and also assigning tasks to users. Those tasks can be edited by the admin , he can delete the task or update the content and/or the title and  opening/closing it
-The main goal of this application is to build a full CRUD application that uses NestJs and GraphQL in the back-end by implementing schemas and resolvers and services that treats every GraphQL query 
-Platform & Libraries 
+The main goal of this application is to build a full CRUD application that uses NestJs and GraphQL in the back-end by implementing schemas and resolvers and services that treats every GraphQL query.
+
+# Platform & Libraries 
 ## Frontend
 ```json
     "dependencies": {
