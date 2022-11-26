@@ -1,20 +1,29 @@
 # Overview 
- This project is all about managing tasks and assigning them to users. Only admins can assign tasks to users. the first account created in the database will automaticaly have an admin access and any other account will have a normal user access.Admins can edit any user and can provide admin access to them. Once a task is assigned to a user , it will be displayed to him. He can close the task when ever he finish it. 
+ This project is all about managing tasks and assigning them to users. Only admins can assign tasks to users. The first account created in the database will automatically have an admin access and any other account will have a normal user access. Admins can edit any user and can provide admin access to them. Once a task is assigned to a user, it will be displayed to him. He can close the task when ever he finishes it. 
 # Launch the project
-## backend
+
 To launch the project, you have to first add a `.env` file in the root directory that will hold the environment variables of the backend. You can find a `.env.example` folder as reference for the environment variables used.
 
-After adding a `.env` file you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
+## Using Docker
+Note: Docker must be installed on your machine.
+To launch the project (frontend and backend), simply run:
+```bash
+docker-compose -f docker-compose-local.yml up --build --force-recreate
+```
 
-To install the backend Node packages simply run:
+## backend
+
+After adding a `.env` file, you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
+
+To install the backend Node packages, simply run:
 ``` bash
 npm install
 ```
-To run the backend server run:
+To run the backend server, run:
 ``` bash
 npm start
 ```
-To run the backend server in development mode run:
+To run the backend server in development mode, run:
 ``` bash
 npm start:dev
 ```
@@ -24,7 +33,7 @@ Navigate to the client folder by running:
 ``` bash
 cd client
 ```
-Then to install the frontend packages run:
+Then to install the frontend packages, run:
 ``` bash
 npm install
 ```
@@ -34,7 +43,7 @@ npm start
 ```
 Note that the frontend will be accessible on port `4200`
  # Features / Technologies 
- The core feature of this application , is to manipulate data, and treat each type of user differently. An admin can edit his own profile and edit any other user profile and also assigning tasks to users. Those tasks can be edited by the admin , he can delete the task or update the content and/or the title and  opening/closing it
+ The core feature of this application, is to manipulate data, and treat each type of user differently. An admin can edit his own profile and edit any other user profile, and also assigning tasks to users. Those tasks can be edited by the admin, he can delete the task or update the content and/or the title and opening/closing it
 The main goal of this application is to build a full CRUD application that uses NestJs and GraphQL in the back-end by implementing schemas and resolvers and services that treats every GraphQL query.
 
 # Platform & Libraries 
@@ -76,11 +85,11 @@ this library allows you to .deal with date more efficiently and from it, you can
 Link: [https://www.npmjs.com/package/moment](https://www.npmjs.com/package/moment)
 
 ### rxjs:
-this amazing and huge library has a lot to say about, but to be brief it allow you to manage some state in your angular project.
+this amazing and huge library has a lot to say about, but to be brief it allows you to manage some state in your angular project.
 Link: [https://www.npmjs.com/package/rxjs](https://www.npmjs.com/package/rxjs)
 
 ### sweetalert2:
-this library provides a pre-build modals you can use to display success messages or errors, without adding HTML or CSS to your project.
+this library provides pre-build modals you can use to display success messages or errors, without adding HTML or CSS to your project.
 Link: [https://www.npmjs.com/package/sweetalert2](https://www.npmjs.com/package/sweetalert2)
 
 ### apollo-client:
