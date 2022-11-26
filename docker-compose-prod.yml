@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  todo_ui_prod:
+    restart: always
+    container_name: todo_ui_prod
+    image: ${REGISTRY_IMAGE}/${IMAGE_NAME}:${VERSION}
+    networks:
+      - todo_prod
+    env_file: 
+      - .env
+    ports:
+      - "80:80"
+  todo_api_prod:
+    restart: always
+    container_name: todo_api_prod
+    image: ${REGISTRY_IMAGE}/${IMAGE_NAME}:${VERSION}
+    networks:
+      - todo_prod
+    env_file: 
+      - .env
+    ports:
+      - "3000:3000"
+
+networks:
+  todo_prod:
+    driver: bridge
+
+
+
+    

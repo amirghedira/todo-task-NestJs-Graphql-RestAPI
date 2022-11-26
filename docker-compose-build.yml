@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  todo_ui:
+    restart: always
+    image: todo_ui:latest
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+  todo_api:
+    restart: always
+    image: todo_ui:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
