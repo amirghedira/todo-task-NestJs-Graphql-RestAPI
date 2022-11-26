@@ -10,8 +10,8 @@ To launch the project (frontend and backend), simply run:
 ```bash
 docker-compose -f docker-compose-local.yml up --build --force-recreate
 ```
-
-## backend
+## Manually
+### backend
 
 After adding a `.env` file, you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
 
@@ -28,7 +28,7 @@ To run the backend server in development mode, run:
 npm start:dev
 ```
 Note that the server will listen on port `5000`
-## frontend
+### frontend
 Navigate to the client folder by running:
 ``` bash
 cd client
